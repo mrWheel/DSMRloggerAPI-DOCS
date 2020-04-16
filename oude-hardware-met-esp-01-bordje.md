@@ -1,6 +1,6 @@
 # Oude Hardware \(met ESP-01 bordje\)
 
-Het is mogelijk om de nieuwe DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 hardware. Een deel van de functionaliteit, zoals Over The Air updaten, kun je dan echter niet gebruiken.
+Het is mogelijk om de nieuwe DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 hardware. Een deel van de functionaliteit, zoals _Over The Air updaten_, kun je dan echter niet gebruiken.
 
 Om de DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 moet je de volgende instellingen gebruiken:
 
