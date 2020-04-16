@@ -13,7 +13,6 @@ Dit doe je door in de ArduinoIDE de **`#define`**'s in het eerste tab-blad aan t
 //  #define USE_BELGIUM_PROTOCOL      // define if Slimme Meter is a Belgium Smart Meter
 //  #define USE_PRE40_PROTOCOL        // define if Slimme Meter is pre DSMR 4.0 (2.2 .. 3.0)
 //  #define USE_NTP_TIME              // define to generate Timestamp from NTP (Only Winter Time for now)
-//  #define SM_HAS_NO_FASE_INFO       // if your SM does not give fase info use total delevered/returned
 //  #define HAS_NO_SLIMMEMETER        // define for testing only!
 #define USE_MQTT                  // define if you want to use MQTT
 #define USE_MINDERGAS             // define if you want to update mindergas (also add token down below)

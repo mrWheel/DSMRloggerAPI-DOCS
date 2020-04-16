@@ -34,5 +34,6 @@
 * [Slimme Meters](slimme-meters.md)
 * [Integratie met Home Assistant](integratie-met-home-assistant.md)
 * [Upgrade DSMRloggerWS naar DSMRloggerAPI](upgrade-dsmrloggerws-naar-dsmrloggerapi.md)
+* [Oude Hardware \(met ESP-01 bordje\)](oude-hardware-met-esp-01-bordje.md)
 * [License](license.md)
 
