@@ -20,7 +20,7 @@ Om de DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 moet je de
 
 ```
 
-Afhankelijk van je situatie kunnen USE\_BELGIUM\_PROTOCOL, USE\_PRE40\_PROTOCOL, USE\_NTP\_TIME uiteraard wel gebruikt worden.
+Afhankelijk van je situatie kunnen USE\_BELGIUM\_PROTOCOL, USE\_PRE40\_PROTOCOL en/of USE\_NTP\_TIME uiteraard wel gebruikt worden.
 
 De compiler instellingen voor de v3 \(met ESP-01\) moeten als volgt staan:
 
