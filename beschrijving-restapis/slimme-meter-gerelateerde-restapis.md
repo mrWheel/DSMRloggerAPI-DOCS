@@ -80,6 +80,53 @@ Succes
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% api-method method="get" host="http://dsmr-api.local" path="/api/v0/sm/actual" %}
+{% api-method-summary %}
+Informatie uit het laatst gelezen telegram
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Deze api dient voor backwards compatibility met de _DSMRloggerWS_ firmware. Deze api call geeft de actuele informatie van de Slimme Meter terug in een JSON string.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+  "timestamp": "170102105001S",
+  "energy_delivered_tariff1": 146.380,
+  "energy_delivered_tariff2": 70.511,
+  "energy_returned_tariff1": 111.164,
+  "energy_returned_tariff2": 75.530,
+  "power_delivered": 1.750,
+  "power_returned": 1.270,
+  "voltage_l1": 242.000,
+  "voltage_l2": 240.000,
+  "voltage_l3": 234.000,
+  "current_l1": 0,
+  "current_l2": 0,
+  "current_l3": 0,
+  "power_delivered_l1": 1.046,
+  "power_delivered_l2": 0.464,
+  "power_delivered_l3": 0.243,
+  "power_returned_l1": 0.669,
+  "power_returned_l2": 0.521,
+  "power_returned_l3": 0.078,
+  "gas_delivered": 100.550
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="get" host="http://dsmr-api.local" path="/api/v1/sm/fields" %}
 {% api-method-summary %}
 Alle velden die de dsmr library terug kan geven
