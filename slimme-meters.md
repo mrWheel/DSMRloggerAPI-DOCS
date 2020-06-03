@@ -155,7 +155,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
       <td style="text-align:left">OK</td>
     </tr>
     <tr>
-      <td style="text-align:left">Lamstrup</td>
+      <td style="text-align:left">Kamstrup</td>
       <td style="text-align:left">382</td>
       <td style="text-align:left">?</td>
       <td style="text-align:left">?</td>
@@ -191,7 +191,9 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
       <td style="text-align:left">OK!</td>
     </tr>
   </tbody>
-</table>#### Compile Options
+</table>
+
+#### Compile Options
 
 1. USE\_REQUEST\_PIN
 2. USE\_UPDATE\_SERVER
