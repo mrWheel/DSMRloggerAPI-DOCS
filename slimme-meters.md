@@ -55,10 +55,10 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
       <td style="text-align:left">Landys</td>
       <td style="text-align:left">ZCF110</td>
       <td style="text-align:left">?</td>
-      <td style="text-align:left">?</td>
+      <td style="text-align:left">JA</td>
       <td style="text-align:left">4.2</td>
       <td style="text-align:left"></td>
-      <td style="text-align:left">?</td>
+      <td style="text-align:left">OK</td>
     </tr>
     <tr>
       <td style="text-align:left">Landys</td>
