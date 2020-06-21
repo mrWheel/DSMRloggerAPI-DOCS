@@ -72,7 +72,7 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
       </td>
       <td style="text-align:left">Deze optie zorgt ervoor dat de functionaliteit voor het versturen van
         gegevens naar <a href="https://mindergas.nl/">mindergas.nl</a> waar je huidige
-        gasverbruik kunt vergelijken met vorig jaar.</td>
+        gasverbruik kunt vergelijken met anderen.</td>
       <td style="text-align:left">JA</td>
     </tr>
     <tr>
@@ -102,7 +102,9 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
       </td>
     </tr>
   </tbody>
-</table>```text
+</table>
+
+```text
 
 /******************** compiler options  ********************************************/
 #define IS_ESP12                  // define if it's a 'bare' ESP-12 (no reset/flash functionality on board)

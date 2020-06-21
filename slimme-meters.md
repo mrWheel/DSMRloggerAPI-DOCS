@@ -164,7 +164,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
       <td style="text-align:left">?</td>
     </tr>
     <tr>
-      <td style="text-align:left">Sagecom</td>
+      <td style="text-align:left">Sagemcom</td>
       <td style="text-align:left">XS210</td>
       <td style="text-align:left">?</td>
       <td style="text-align:left">?</td>

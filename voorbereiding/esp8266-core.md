@@ -33,7 +33,7 @@ Voer bij filter “esp8266” in.
 Selecteer de versie die je wilt gaan gebruiken en klik op \[**`Install`**\].
 
 {% hint style="warning" %}
-Let op! De DSMRloggerAPI firmware is getest met **versie 2.6.2** en met **versie 2.6.3** van de Arduino/ESP8266 core.
+Let op! De DSMRloggerAPI firmware is getest met **versie 2.6.2, 2.6.3** en met **versie 2.7.1** van de Arduino/ESP8266 core.
 {% endhint %}
 
   
