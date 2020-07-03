@@ -174,6 +174,15 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
     </tr>
     <tr>
       <td style="text-align:left">Sagemcom</td>
+      <td style="text-align:left">T210-D</td>
+      <td style="text-align:left">Standaard</td>
+      <td style="text-align:left">Nee</td>
+      <td style="text-align:left">5.0</td>
+      <td style="text-align:left">ESMR5</td>
+      <td style="text-align:left">OK!</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Sagemcom</td>
       <td style="text-align:left">S211</td>
       <td style="text-align:left">1, 2, 3, 6</td>
       <td style="text-align:left">Nee</td>
