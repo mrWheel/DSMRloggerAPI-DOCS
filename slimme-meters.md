@@ -199,6 +199,15 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
       <td style="text-align:left">Geen info per fase</td>
       <td style="text-align:left">OK!</td>
     </tr>
+    <tr>
+      <td style="text-align:left">Ziv</td>
+      <td style="text-align:left">E0058</td>
+      <td style="text-align:left">Standaard</td>
+      <td style="text-align:left">Nee</td>
+      <td style="text-align:left">5.0</td>
+      <td style="text-align:left">ESMR5, Alleen electra getest</td>
+      <td style="text-align:left">OK!</td>  
+    </tr>
   </tbody>
 </table>
 
