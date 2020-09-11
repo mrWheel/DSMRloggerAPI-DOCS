@@ -128,7 +128,7 @@ Ik ben ook niet erg handig met JSON libraries \(liefst parse ik de data helemaal
 //
 // en definieer:
 //    const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-//    String      sensorReadings;
+//    String      dsmrReadings;
 
 //--------------------------------------------------------------------------
 String dsmrGETRequestArduino(const char* dsmrLogger) 
@@ -208,9 +208,9 @@ String removeQuotes(JSONVar in)
 //--------------------------------------------------------------------------
 void readDsmrLogger()
 {
-  sensorReadings = dsmrGETRequestArduino(serverPath);
-  //Serial.println(sensorReadings);
-  JSONVar myObject = JSON.parse(sensorReadings);
+  dsmrReadings = dsmrGETRequestArduino(serverPath);
+  //Serial.println(dsmrReadings);
+  JSONVar myObject = JSON.parse(dsmrReadings);
   
   // JSON.typeof(jsonVar) can be used to get the type of the var
   if (JSON.typeof(myObject) == "undefined") 
@@ -275,7 +275,7 @@ Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zel
 //    const char *ssid       = "replaceWithYourSSID";
 //    const char *password   = "replaceWithYourPassword";
 //    const char *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-//    String     sensorReadings;
+//    String     dsmrReadings;
 
 //--------------------------------------------------------------------------
 String dsmrGETRequestESP32(const char* dsmrLogger) 
@@ -345,9 +345,9 @@ String removeQuotes(JSONVar in)
 //--------------------------------------------------------------------------
 void readDsmrLogger()
 {
-  sensorReadings = dsmrGETRequestESP32(serverPath);
-  //Serial.println(sensorReadings);
-  JSONVar myObject = JSON.parse(sensorReadings);
+  dsmrReadings = dsmrGETRequestESP32(serverPath);
+  //Serial.println(dsmrReadings);
+  JSONVar myObject = JSON.parse(dsmrReadings);
   
   // JSON.typeof(jsonVar) can be used to get the type of the var
   if (JSON.typeof(myObject) == "undefined") {
