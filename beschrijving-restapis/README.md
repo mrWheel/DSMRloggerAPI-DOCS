@@ -104,7 +104,297 @@ geeft dit resultaat:
 Met hassOS lukt het mij niet om bij resource de hostname \(DSMR-API.local\) te gebruiken. Met het IP adres lukt het wel.
 {% endhint %}
 
-### 
+### Arduino with Ethernet shield
+
+Ik heb zelf geen Ethernet Shield dus deze code heb ik niet kunnen testen :-\(
+
+Ik ben ook niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
+
+```text
+// Include in the main program:
+//    #include <Ethernet.h>
+//    #include <SPI.h>
+//    #include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
+//
+// and in Setup() do something like:
+//    // Initialize Ethernet library
+//    byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+//    byte ipDSMR[]  = { 192, 168, 1, 106 };    // address of the DSMR-logger   
+//    if (!Ethernet.begin(mac)) {
+//      Serial.println("Failed to configure Ethernet");
+//      return;
+//    }
+//    delay(1000);
+//
+// en definieer:
+//    const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
+//    String      sensorReadings;
+
+//--------------------------------------------------------------------------
+String dsmrGETRequestArduino(const char* dsmrLogger) 
+{
+  EthernetClient DSMRclient;
+  DSMRclient.setTimeout(10000);
+  String payload = "{}"; 
+  int    plIndex = 0;
+   
+  // Your IP address with path or Domain name with URL path 
+  if (DSMRclient.connect(ipDSMR, 80)) 
+  {
+    Serial.println("connected");
+    // Make a HTTP request:
+    DSMRclient.println("GET /api/v1/sm/actual HTTP/1.1");
+    DSMRclient.println("Host: 192.168.1.106");
+    DSMRclient.println("Connection: close");
+    DSMRclient.println();
+  } 
+  else 
+  {
+    // if you didn't get a connection to the server:
+    Serial.println("connection failed");
+  }
+
+  while(DSMRclient.connected()) 
+  {
+    if(DSMRclient.available())
+    {
+      // read an incoming byte from the server and print it to serial monitor:
+      char c = DSMRclient.read();
+      payload[plIndex++] = c;
+      payload[plIndex]   = 0;
+    }
+  }
+  // Free resources
+  DSMRclient.stop();
+
+  return payload;
+  
+} // dsmrGETrequestArduino()
+
+
+//--------------------------------------------------------------------------
+String splitJsonArray(String data, int index)
+{
+  int found = 0;
+  int strIndex[] = {0, -1};
+  int maxIndex = data.length()-1;
+
+  for(int i=0; i<=maxIndex && found<=index; i++)
+  {
+    if((data.charAt(i) == '}' && data.charAt(i+1) == ',') || i==maxIndex)
+    {
+        found++;
+        strIndex[0] = strIndex[1]+1;
+        strIndex[1] = (i == maxIndex) ? i+1 : i;
+        if (data.charAt(i+1) == ',') data[i+1] = ' ';
+    }
+  }
+
+  return found>index ? data.substring(strIndex[0], strIndex[1]+1) : "";
+  
+} // splitJsonArray()
+
+
+//--------------------------------------------------------------------------
+String removeQuotes(JSONVar in)
+{
+  String in2 = JSON.stringify(in);
+  in2.replace("\"", "");
+  return in2;
+    
+} // removeQuotes()
+
+
+//--------------------------------------------------------------------------
+void readDsmrLogger()
+{
+  sensorReadings = dsmrGETRequestArduino(serverPath);
+  //Serial.println(sensorReadings);
+  JSONVar myObject = JSON.parse(sensorReadings);
+  
+  // JSON.typeof(jsonVar) can be used to get the type of the var
+  if (JSON.typeof(myObject) == "undefined") 
+  {
+    Serial.println("Parsing input failed!");
+    return;
+  }
+  // This is how the "actual" JSON object looks like:
+  //   {"actual":[
+  //       {"name":"timestamp","value":"200911140716S"}
+  //      ,{"name":"energy_delivered_tariff1","value":3433.297,"unit":"kWh"}
+  //      ,{"name":"energy_delivered_tariff2","value":4453.041,"unit":"kWh"}
+  //      ,{"name":"energy_returned_tariff1","value":678.953,"unit":"kWh"}
+  //          ...
+  //      ,{"name":"power_delivered_l2","value":0.071,"unit":"kW"}
+  //      ,{"name":"power_delivered_l3","value":0,"unit":"kW"}
+  //      ,{"name":"power_returned_l1","value":0,"unit":"kW"}
+  //      ,{"name":"power_returned_l2","value":0,"unit":"kW"}
+  //      ,{"name":"power_returned_l3","value":0.722,"unit":"kW"}
+  //      ,{"name":"gas_delivered","value":2915.08,"unit":"m3"}
+  //    ]}
+  
+    String actualData = JSON.stringify(myObject["actual"]);
+    actualData.replace("[", "");
+    actualData.replace("]", "");
+
+    for(int i = 0; i < 30; i++)
+    {
+      String field = splitJsonArray(actualData, i);
+      if (field.length() > 0)
+      {
+        Serial.println(field);
+        JSONVar nextObject = JSON.parse(field);
+        JSONVar dataArray = nextObject.keys();
+        //Serial.print("dataArray.length(): ");
+        //Serial.println(dataArray.length());
+        for (int i = 0; i < dataArray.length(); i++) 
+        {
+          JSONVar value = nextObject[dataArray[i]];
+          Serial.print(removeQuotes(dataArray[i]));
+          Serial.print(" \t-> ");
+          Serial.println(removeQuotes(value));
+        }
+      }
+    } // loop over all data
+      
+} // readDsmrLogger()
+
+```
+
+### ESP32 \(WiFi\)
+
+Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
+
+```text
+// Include in the main program:
+//    #include <WiFi.h>
+//    #include <HTTPClient.h>
+//    #include <Arduino_JSON.h>  // let op! Niet ArduinoJson!
+//
+// en definieer:
+//    const char *ssid       = "replaceWithYourSSID";
+//    const char *password   = "replaceWithYourPassword";
+//    const char *serverPath = "http://192.168.1.106/api/v1/sm/actual";
+//    String     sensorReadings;
+
+//--------------------------------------------------------------------------
+String dsmrGETRequestESP32(const char* dsmrLogger) 
+{
+  HTTPClient DSMRclient;
+    
+  // Your IP address with path or Domain name with URL path 
+  DSMRclient.begin(dsmrLogger);
+  
+  // Send HTTP POST request
+  int httpResponseCode = DSMRclient.GET();
+  
+  String payload = "{}"; 
+  
+  if (httpResponseCode > 0) 
+  {
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+    payload = DSMRclient.getString();
+  }
+  else 
+  {
+    Serial.print("Error code: ");
+    Serial.println(httpResponseCode);
+  }
+  // Free resources
+  DSMRclient.end();
+
+  return payload;
+  
+} // dsmrGETrequestESP32()
+
+
+//--------------------------------------------------------------------------
+String splitJsonArray(String data, int index)
+{
+  int found = 0;
+  int strIndex[] = {0, -1};
+  int maxIndex = data.length()-1;
+
+  for(int i=0; i<=maxIndex && found<=index; i++)
+  {
+    if((data.charAt(i) == '}' && data.charAt(i+1) == ',') || i==maxIndex)
+    {
+        found++;
+        strIndex[0] = strIndex[1]+1;
+        strIndex[1] = (i == maxIndex) ? i+1 : i;
+        if (data.charAt(i+1) == ',') data[i+1] = ' ';
+    }
+  }
+
+  return found>index ? data.substring(strIndex[0], strIndex[1]+1) : "";
+  
+} // splitJsonArray()
+
+
+//--------------------------------------------------------------------------
+String removeQuotes(JSONVar in)
+{
+  String in2 = JSON.stringify(in);
+  in2.replace("\"", "");
+  return in2;
+    
+} // removeQuotes()
+
+
+//--------------------------------------------------------------------------
+void readDsmrLogger()
+{
+  sensorReadings = dsmrGETRequestESP32(serverPath);
+  //Serial.println(sensorReadings);
+  JSONVar myObject = JSON.parse(sensorReadings);
+  
+  // JSON.typeof(jsonVar) can be used to get the type of the var
+  if (JSON.typeof(myObject) == "undefined") {
+    Serial.println("Parsing input failed!");
+    return;
+  }
+  // This is how the "actual" JSON object looks like:
+  //   {"actual":[
+  //       {"name":"timestamp","value":"200911140716S"}
+  //      ,{"name":"energy_delivered_tariff1","value":3433.297,"unit":"kWh"}
+  //      ,{"name":"energy_delivered_tariff2","value":4453.041,"unit":"kWh"}
+  //      ,{"name":"energy_returned_tariff1","value":678.953,"unit":"kWh"}
+  //          ...
+  //      ,{"name":"power_delivered_l2","value":0.071,"unit":"kW"}
+  //      ,{"name":"power_delivered_l3","value":0,"unit":"kW"}
+  //      ,{"name":"power_returned_l1","value":0,"unit":"kW"}
+  //      ,{"name":"power_returned_l2","value":0,"unit":"kW"}
+  //      ,{"name":"power_returned_l3","value":0.722,"unit":"kW"}
+  //      ,{"name":"gas_delivered","value":2915.08,"unit":"m3"}
+  //    ]}
+  String actualData = JSON.stringify(myObject["actual"]);
+  actualData.replace("[", "");
+  actualData.replace("]", "");
+
+  for(int i = 0; i < 30; i++)
+  {
+    String field = splitJsonArray(actualData, i);
+    if (field.length() > 0)
+    {
+      Serial.println(field);
+      JSONVar nextObject = JSON.parse(field);
+      JSONVar dataArray = nextObject.keys();
+      //Serial.print("dataArray.length(): ");
+      //Serial.println(dataArray.length());
+      for (int i = 0; i < dataArray.length(); i++) 
+      {
+        JSONVar value = nextObject[dataArray[i]];
+        Serial.print(removeQuotes(dataArray[i]));
+        Serial.print(" \t-> ");
+        Serial.println(removeQuotes(value));
+      }
+    }
+  } // loop over all data
+      
+} // readDsmrLogger()
+
+```
 
 ### Andere systemen
 
