@@ -150,7 +150,7 @@ String dsmrGETRequest(const char* dsmrLogger)
     // if you didn't get a connection to the server:
     Serial.println("connection failed");
     return "Error";
-     }
+  }
 
   while(DSMRclient.connected()) 
   {
@@ -339,7 +339,8 @@ void setup()
   // setup WiFi ..
   WiFi.begin(ssid, password);
   Serial.println("Connecting");
-  while(WiFi.status() != WL_CONNECTED) {
+  while(WiFi.status() != WL_CONNECTED) 
+  {
     delay(500);
     Serial.print(".");
   }
@@ -401,7 +402,8 @@ void readDsmrLogger()
   JSONVar myObject = JSON.parse(dsmrReadings);
   
   // JSON.typeof(jsonVar) can be used to get the type of the var
-  if (JSON.typeof(myObject) == "undefined") {
+  if (JSON.typeof(myObject) == "undefined") 
+  {
     Serial.println("Parsing input failed!");
     return;
   }
