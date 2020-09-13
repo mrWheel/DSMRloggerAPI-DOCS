@@ -34,8 +34,6 @@ Een restAPI kan op verschillende manieren worden aangeroepen.
 
 ```
 
-
-
 ### Unix command
 
 ```text
@@ -50,8 +48,6 @@ Geeft dit als output:
    {"name": "epoch", "value": 1584963941}
 ]}
 ```
-
- 
 
 ### Home Assistant
 
@@ -119,7 +115,7 @@ Ik ben ook niet erg handig met JSON libraries \(liefst parse ik de data helemaal
 #include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
 //
 #define _READINTERVAL   60000
-#
+//
 const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
 String      dsmrReadings;
 uint32_t    lastRead = 0;
@@ -146,7 +142,8 @@ String dsmrGETRequest(const char* dsmrLogger)
   {
     // if you didn't get a connection to the server:
     Serial.println("connection failed");
-  }
+    return "Error";
+     }
 
   while(DSMRclient.connected()) 
   {
@@ -189,119 +186,7 @@ void setup()
 
 ```
 
-Verder moet je de "algemene functies" onderaan deze pagina in je sketch opnemen.
-
-
-
-```text
-// Include in the main program:
-//    #include <Ethernet.h>
-//    #include <SPI.h>
-//    #include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
-//
-// and in Setup() do something like:
-//    // Initialize Ethernet library
-//    byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-//    byte ipDSMR[]  = { 192, 168, 1, 106 };    // address of the DSMR-logger   
-//    if (!Ethernet.begin(mac)) {
-//      Serial.println("Failed to configure Ethernet");
-//      return;
-//    }
-//    delay(1000);
-//
-// en definieer:
-//    const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-//    String      dsmrReadings;
-
-
-//--------------------------------------------------------------------------
-String splitJsonArray(String data, int index)
-{
-  int found = 0;
-  int strIndex[] = {0, -1};
-  int maxIndex = data.length()-1;
-
-  for(int i=0; i<=maxIndex && found<=index; i++)
-  {
-    if((data.charAt(i) == '}' && data.charAt(i+1) == ',') || i==maxIndex)
-    {
-        found++;
-        strIndex[0] = strIndex[1]+1;
-        strIndex[1] = (i == maxIndex) ? i+1 : i;
-        if (data.charAt(i+1) == ',') data[i+1] = ' ';
-    }
-  }
-
-  return found>index ? data.substring(strIndex[0], strIndex[1]+1) : "";
-  
-} // splitJsonArray()
-
-
-//--------------------------------------------------------------------------
-String removeQuotes(JSONVar in)
-{
-  String in2 = JSON.stringify(in);
-  in2.replace("\"", "");
-  return in2;
-    
-} // removeQuotes()
-
-
-//--------------------------------------------------------------------------
-void readDsmrLogger()
-{
-  dsmrReadings = dsmrGETRequestArduino(serverPath);
-  //Serial.println(dsmrReadings);
-  JSONVar myObject = JSON.parse(dsmrReadings);
-  
-  // JSON.typeof(jsonVar) can be used to get the type of the var
-  if (JSON.typeof(myObject) == "undefined") 
-  {
-    Serial.println("Parsing input failed!");
-    return;
-  }
-  // This is how the "actual" JSON object looks like:
-  //   {"actual":[
-  //       {"name":"timestamp","value":"200911140716S"}
-  //      ,{"name":"energy_delivered_tariff1","value":3433.297,"unit":"kWh"}
-  //      ,{"name":"energy_delivered_tariff2","value":4453.041,"unit":"kWh"}
-  //      ,{"name":"energy_returned_tariff1","value":678.953,"unit":"kWh"}
-  //          ...
-  //      ,{"name":"power_delivered_l2","value":0.071,"unit":"kW"}
-  //      ,{"name":"power_delivered_l3","value":0,"unit":"kW"}
-  //      ,{"name":"power_returned_l1","value":0,"unit":"kW"}
-  //      ,{"name":"power_returned_l2","value":0,"unit":"kW"}
-  //      ,{"name":"power_returned_l3","value":0.722,"unit":"kW"}
-  //      ,{"name":"gas_delivered","value":2915.08,"unit":"m3"}
-  //    ]}
-  
-    String actualData = JSON.stringify(myObject["actual"]);
-    actualData.replace("[", "");
-    actualData.replace("]", "");
-
-    for(int i = 0; i < 30; i++)
-    {
-      String field = splitJsonArray(actualData, i);
-      if (field.length() > 0)
-      {
-        Serial.println(field);
-        JSONVar nextObject = JSON.parse(field);
-        JSONVar dataArray = nextObject.keys();
-        //Serial.print("dataArray.length(): ");
-        //Serial.println(dataArray.length());
-        for (int i = 0; i < dataArray.length(); i++) 
-        {
-          JSONVar value = nextObject[dataArray[i]];
-          Serial.print(removeQuotes(dataArray[i]));
-          Serial.print(" \t-> ");
-          Serial.println(removeQuotes(value));
-        }
-      }
-    } // loop over all data
-      
-} // readDsmrLogger()
-
-```
+Verder moet je de [Algemene functies](./#algemene-functies) onderaan deze pagina in je sketch opnemen.
 
 ### ESP32 \(WiFi\)
 
@@ -376,6 +261,8 @@ void setup()
 } // setup()
 
 ```
+
+Verder moet je de [Algemene functies](./#algemene-functies) onderaan deze pagina in je sketch opnemen.
 
 ### Algemene functies
 
@@ -464,7 +351,11 @@ void readDsmrLogger()
   } // loop over all data
       
 } // readDsmrLogger()
+```
 
+In de main loop\(\) function moet deze code komen:
+
+```text
 
 //--------------------------------------------------------------------------
 void loop()
@@ -481,7 +372,11 @@ void loop()
 }  // loop()
 ```
 
+
+
 ### Andere systemen
 
 Veel andere systemen hebben hun eigen manier om restAPI's op te vragen. Lees hiervoor de betreffende documentatie.
+
+
 
