@@ -10,6 +10,15 @@ Alle beschikbare gegevens kunnen via restAPI call's bij de DSMR-logger worden op
 
 Een restAPI kan op verschillende manieren worden aangeroepen.
 
+* [Javascript](./#javascript)
+* [Unix command](./#unix-command)
+* [Home Assistant](./#home-assistant)
+* [Arduino met Ethernet Shield](./#arduino-met-ethernet-shield)
+* [ESP8266](./#esp8266-wifi)
+* [ESP32](./#esp32-wifi)
+
+With some help from random
+
 ### Javascript
 
 ```text
@@ -102,11 +111,11 @@ geeft dit resultaat:
 Met hassOS lukt het mij niet om bij resource de hostname \(DSMR-API.local\) te gebruiken. Met het IP adres lukt het wel.
 {% endhint %}
 
-### Arduino with Ethernet shield
-
-Ik heb zelf geen Ethernet Shield dus deze code heb ik niet kunnen testen :-\(
+### Arduino met Ethernet shield
 
 Ik ben ook niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
+
+Ik heb zelf geen Ethernet Shield dus deze code heb ik niet kunnen testen :-\(
 
 ```text
 // in the main program:
@@ -166,6 +175,7 @@ String dsmrGETRequest(const char* dsmrLogger)
 //--------------------------------------------------------------------------
 void setup()
 {
+  // setup Serial ..
   .
   .
   // Initialize Ethernet library
@@ -188,7 +198,9 @@ void setup()
 
 Verder moet je de [Algemene functies](./#algemene-functies) onderaan deze pagina in je sketch opnemen.
 
-### ESP32 \(WiFi\)
+### ESP8266 \(WiFi\)
+
+With some help from [Random Nerd Tutorials](https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/)!
 
 Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
 
@@ -242,8 +254,91 @@ String dsmrGETRequest(const char* dsmrLogger)
 //--------------------------------------------------------------------------
 void setup() 
 {
+  // setup serial ..
   .
   .
+  // setup WiFi ..
+  WiFi.begin(ssid, password);
+  Serial.println("Connecting");
+  while(WiFi.status() != WL_CONNECTED) 
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.print("Connected to WiFi network with IP Address: ");
+  Serial.println(WiFi.localIP());
+  
+  lastRead = millis() + _READINTERVAL;
+  .
+  .
+    
+} // setup()
+
+```
+
+Verder moet je de [Algemene functies](./#algemene-functies) onderaan deze pagina in je sketch opnemen.
+
+### ESP32 \(WiFi\)
+
+With some help from [Random Nerd Tutorials](https://randomnerdtutorials.com/esp32-http-get-open-weather-map-thingspeak-arduino/).
+
+Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
+
+```text
+// Include in the main program:
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <Arduino_JSON.h>  // let op! Niet ArduinoJson!
+//
+#define _READINTERVAL 60000
+
+const char *ssid       = "replaceWithYourSSID";
+const char *password   = "replaceWithYourPassword";
+const char *serverPath = "http://192.168.1.106/api/v1/sm/actual";
+String     dsmrReadings;
+uint32_t   lastRead    = 0;
+
+//--------------------------------------------------------------------------
+String dsmrGETRequest(const char* dsmrLogger) 
+{
+  HTTPClient DSMRclient;
+    
+  // Your IP address with path or Domain name with URL path 
+  DSMRclient.begin(dsmrLogger);
+  
+  // Send HTTP POST request
+  int httpResponseCode = DSMRclient.GET();
+  
+  String payload = "{}"; 
+  
+  if (httpResponseCode > 0) 
+  {
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+    payload = DSMRclient.getString();
+  }
+  else 
+  {
+    Serial.print("Error code: ");
+    Serial.println(httpResponseCode);
+    return "Error";
+  }
+  // Free resources
+  DSMRclient.end();
+
+  return payload;
+  
+} // dsmrGETrequest()
+
+
+//--------------------------------------------------------------------------
+void setup() 
+{
+  // setup Serial ..
+  .
+  .
+  // setup WiFi ..
   WiFi.begin(ssid, password);
   Serial.println("Connecting");
   while(WiFi.status() != WL_CONNECTED) {
@@ -377,6 +472,4 @@ void loop()
 ### Andere systemen
 
 Veel andere systemen hebben hun eigen manier om restAPI's op te vragen. Lees hiervoor de betreffende documentatie.
-
-
 
