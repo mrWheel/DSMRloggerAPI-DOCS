@@ -17,8 +17,6 @@ Een restAPI kan op verschillende manieren worden aangeroepen.
 * [ESP8266](./#esp8266-wifi)
 * [ESP32](./#esp32-wifi)
 
-With some help from random
-
 ### Javascript
 
 ```text
