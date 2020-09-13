@@ -6,6 +6,8 @@ Alle beschikbare gegevens kunnen via restAPI call's bij de DSMR-logger worden op
 * [Slimme Meter gerelateerde restAPI's](slimme-meter-gerelateerde-restapis.md)
 * [Historie gerelateerde restAPI's](historische-gegevens-gerelateerde-restapis.md)
 
+## Aanroepen restAPI vanuit verschillende systemen
+
 Een restAPI kan op verschillende manieren worden aangeroepen.
 
 ### Javascript
@@ -111,27 +113,19 @@ Ik heb zelf geen Ethernet Shield dus deze code heb ik niet kunnen testen :-\(
 Ik ben ook niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
 
 ```text
-// Include in the main program:
-//    #include <Ethernet.h>
-//    #include <SPI.h>
-//    #include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
+// in the main program:
+#include <Ethernet.h>
+#include <SPI.h>
+#include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
 //
-// and in Setup() do something like:
-//    // Initialize Ethernet library
-//    byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-//    byte ipDSMR[]  = { 192, 168, 1, 106 };    // address of the DSMR-logger   
-//    if (!Ethernet.begin(mac)) {
-//      Serial.println("Failed to configure Ethernet");
-//      return;
-//    }
-//    delay(1000);
-//
-// en definieer:
-//    const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-//    String      dsmrReadings;
+#define _READINTERVAL   60000
+#
+const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
+String      dsmrReadings;
+uint32_t    lastRead = 0;
 
 //--------------------------------------------------------------------------
-String dsmrGETRequestArduino(const char* dsmrLogger) 
+String dsmrGETRequest(const char* dsmrLogger) 
 {
   EthernetClient DSMRclient;
   DSMRclient.setTimeout(10000);
@@ -170,6 +164,54 @@ String dsmrGETRequestArduino(const char* dsmrLogger)
   return payload;
   
 } // dsmrGETrequestArduino()
+
+
+//--------------------------------------------------------------------------
+void setup()
+{
+  .
+  .
+  // Initialize Ethernet library
+  byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+  byte ipDSMR[]  = { 192, 168, 1, 106 };    // address of the DSMR-logger   
+  if (!Ethernet.begin(mac)) 
+  {
+    Serial.println("Failed to configure Ethernet");
+    return;
+  }
+  delay(1000);
+  .
+  .
+  lastRead = millis() + _READINTERVAL;
+  
+}  // setup()
+
+
+```
+
+Verder moet je de "algemene functies" onderaan deze pagina in je sketch opnemen.
+
+
+
+```text
+// Include in the main program:
+//    #include <Ethernet.h>
+//    #include <SPI.h>
+//    #include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
+//
+// and in Setup() do something like:
+//    // Initialize Ethernet library
+//    byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+//    byte ipDSMR[]  = { 192, 168, 1, 106 };    // address of the DSMR-logger   
+//    if (!Ethernet.begin(mac)) {
+//      Serial.println("Failed to configure Ethernet");
+//      return;
+//    }
+//    delay(1000);
+//
+// en definieer:
+//    const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
+//    String      dsmrReadings;
 
 
 //--------------------------------------------------------------------------
@@ -267,18 +309,20 @@ Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zel
 
 ```text
 // Include in the main program:
-//    #include <WiFi.h>
-//    #include <HTTPClient.h>
-//    #include <Arduino_JSON.h>  // let op! Niet ArduinoJson!
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <Arduino_JSON.h>  // let op! Niet ArduinoJson!
 //
-// en definieer:
-//    const char *ssid       = "replaceWithYourSSID";
-//    const char *password   = "replaceWithYourPassword";
-//    const char *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-//    String     dsmrReadings;
+#define _READINTERVAL 60000
+
+const char *ssid       = "replaceWithYourSSID";
+const char *password   = "replaceWithYourPassword";
+const char *serverPath = "http://192.168.1.106/api/v1/sm/actual";
+String     dsmrReadings;
+uint32_t   lastRead    = 0;
 
 //--------------------------------------------------------------------------
-String dsmrGETRequestESP32(const char* dsmrLogger) 
+String dsmrGETRequest(const char* dsmrLogger) 
 {
   HTTPClient DSMRclient;
     
@@ -300,15 +344,42 @@ String dsmrGETRequestESP32(const char* dsmrLogger)
   {
     Serial.print("Error code: ");
     Serial.println(httpResponseCode);
+    return "Error";
   }
   // Free resources
   DSMRclient.end();
 
   return payload;
   
-} // dsmrGETrequestESP32()
+} // dsmrGETrequest()
 
 
+//--------------------------------------------------------------------------
+void setup() 
+{
+  .
+  .
+  WiFi.begin(ssid, password);
+  Serial.println("Connecting");
+  while(WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.print("Connected to WiFi network with IP Address: ");
+  Serial.println(WiFi.localIP());
+  
+  lastRead = millis() + _READINTERVAL;
+  .
+  .
+    
+} // setup()
+
+```
+
+### Algemene functies
+
+```text
 //--------------------------------------------------------------------------
 String splitJsonArray(String data, int index)
 {
@@ -345,7 +416,7 @@ String removeQuotes(JSONVar in)
 //--------------------------------------------------------------------------
 void readDsmrLogger()
 {
-  dsmrReadings = dsmrGETRequestESP32(serverPath);
+  dsmrReadings = dsmrGETRequest(serverPath);
   //Serial.println(dsmrReadings);
   JSONVar myObject = JSON.parse(dsmrReadings);
   
@@ -394,6 +465,20 @@ void readDsmrLogger()
       
 } // readDsmrLogger()
 
+
+//--------------------------------------------------------------------------
+void loop()
+{
+  if ((millis() - lastRead) > _READINTERVAL)
+  {
+    lastRead = millis();
+    Serial.println("\r\nread API from DSMR-logger...");
+    readDsmrLogger();
+    Serial.println("========================================");
+  }
+  .
+  .
+}  // loop()
 ```
 
 ### Andere systemen
