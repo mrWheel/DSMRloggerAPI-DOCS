@@ -121,53 +121,48 @@ Ik heb zelf geen Ethernet Shield dus deze code heb ik niet kunnen testen :-\(
 #include <SPI.h>
 #include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
 //
-#define _READINTERVAL   60000
+#define _IS_ARDUINO
+#define _DSMR_IP_ADDRESS    "IP_ADDRESS_OF_YOUR_DSMR_LOGGER"
+#define _READINTERVAL       60000
 //
-const char  *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-String      dsmrReadings;
+const char *DSMRprotocol  = "http://";
+const char *DSMRserverIP  = _DSMR_IP_ADDRESS;
+const char *DSMRrestAPI   = "/api/v1/sm/actual";
+String      payload;
+int         httpResponseCode;
 uint32_t    lastRead = 0;
 
 //--------------------------------------------------------------------------
-String dsmrGETRequest(const char* dsmrLogger) 
+bool dsmrGETrequest() 
 {
-  EthernetClient DSMRclient;
-  DSMRclient.setTimeout(10000);
-  String payload = "{}"; 
-  int    plIndex = 0;
+  EthernetClient ETHclient;
+  HttpClient DSMRclient = HttpClient(ETHclient, DSMRserverIP, 80);
+
+  payload = "{}"; 
    
-  // Your IP address with path or Domain name with URL path 
-  if (DSMRclient.connect(ipDSMR, 80)) 
+  //-debug-Serial.println(F("making GET request"));
+  DSMRclient.get(DSMRrestAPI);
+
+  // read the response code and body of the response
+  httpResponseCode = DSMRclient.responseStatusCode();
+  Serial.print(F("http Response Code: "));
+  Serial.println(httpResponseCode);
+
+  if (httpResponseCode <= 0)
   {
-    Serial.println("connected");
-    // Make a HTTP request:
-    DSMRclient.println("GET /api/v1/sm/actual HTTP/1.1");
-    DSMRclient.println("Host: 192.168.1.106");
-    DSMRclient.println("Connection: close");
-    DSMRclient.println();
-  } 
-  else 
-  {
-    // if you didn't get a connection to the server:
-    Serial.println("connection failed");
-    return "Error";
+    return false;
   }
 
-  while(DSMRclient.connected()) 
-  {
-    if(DSMRclient.available())
-    {
-      // read an incoming byte from the server and print it to serial monitor:
-      char c = DSMRclient.read();
-      payload[plIndex++] = c;
-      payload[plIndex]   = 0;
-    }
-  }
+  payload    = DSMRclient.responseBody();
+  //-debug-Serial.print("Response: ");
+  //-debug-Serial.println(payload);
+  
   // Free resources
   DSMRclient.stop();
 
-  return payload;
+  return true;
   
-} // dsmrGETrequestArduino()
+} // dsmrGETrequest()
 
 
 //--------------------------------------------------------------------------
@@ -181,7 +176,7 @@ void setup()
   byte ipDSMR[]  = { 192, 168, 1, 106 };    // address of the DSMR-logger   
   if (!Ethernet.begin(mac)) 
   {
-    Serial.println("Failed to configure Ethernet");
+    Serial.println(F("Failed to configure Ethernet"));
     return;
   }
   delay(1000);
@@ -198,53 +193,98 @@ Verder moet je de [Algemene functies](./#algemene-functies) onderaan deze pagina
 
 ### ESP8266 \(WiFi\)
 
-With some help from [Random Nerd Tutorials](https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/)!
-
 Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
 
 ```text
 // Include in the main program:
 #include <WiFi.h>
-#include <HTTPClient.h>
 #include <Arduino_JSON.h>  // let op! Niet ArduinoJson!
 //
-#define _READINTERVAL 60000
-
-const char *ssid       = "replaceWithYourSSID";
-const char *password   = "replaceWithYourPassword";
-const char *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-String     dsmrReadings;
-uint32_t   lastRead    = 0;
+#define _IS_ESP8266
+#define _DSMR_IP_ADDRESS    "IP_ADDRESS_OF_YOUR_DSMR_LOGGER"
+#define _WIFI_SSID          "YOUR_WIFI_SSID"
+#define _WIFI_PASSWRD       "YOUR_WIF_PASSWORD"
+#define _READINTERVAL       60000
+//
+const char *ssid          = _WIFI_SSID;
+const char *password      = _WIFI_PASSWRD;
+//
+const char *DSMRprotocol  = "http://";
+const char *DSMRserverIP  = _DSMR_IP_ADDRESS;
+const char *DSMRrestAPI   = "/api/v1/sm/actual";
+String      payload;
+int         httpResponseCode;
+uint32_t    lastRead = 0;
 
 //--------------------------------------------------------------------------
-String dsmrGETRequest(const char* dsmrLogger) 
+bool dsmrGETrequest() 
 {
-  HTTPClient DSMRclient;
-    
-  // Your IP address with path or Domain name with URL path 
-  DSMRclient.begin(dsmrLogger);
-  
-  // Send HTTP POST request
-  int httpResponseCode = DSMRclient.GET();
-  
-  String payload = "{}"; 
-  
-  if (httpResponseCode > 0) 
-  {
-    Serial.print("HTTP Response code: ");
-    Serial.println(httpResponseCode);
-    payload = DSMRclient.getString();
-  }
-  else 
-  {
-    Serial.print("Error code: ");
-    Serial.println(httpResponseCode);
-    return "Error";
-  }
-  // Free resources
-  DSMRclient.end();
+  WiFiClient  DSMRclient;
 
-  return payload;
+  payload = ""; 
+
+  Serial.print("DSMRclient.connect("); Serial.print(DSMRserverIP);
+  Serial.println(", 80)");
+  if (!DSMRclient.connect(DSMRserverIP, 80))
+  {
+    Serial.println(F("error connecting to DSMRlogger "));
+    return false;
+  }
+
+  //-- normal operation 
+  DSMRclient.print(F("GET "));
+  DSMRclient.print(DSMRrestAPI);
+  DSMRclient.println(" HTTP/1.1");
+  DSMRclient.print(F("Host: "));
+  DSMRclient.println(DSMRserverIP);
+  DSMRclient.println(F("Connection: close"));
+  DSMRclient.println();
+
+  DSMRclient.setTimeout(2000);
+
+  //-debug-Serial.println("find(HTTP/1.1)..");
+  DSMRclient.find("HTTP/1.1");  // skip everything up-until "HTTP/1.1"
+  //-debug-Serial.print("DSMRclient.parseInt() ==> ");
+  httpResponseCode = DSMRclient.parseInt(); // parse status code
+  
+  Serial.print("HTTP Response code: ");
+  Serial.println(httpResponseCode);
+  
+  if (httpResponseCode <= 0) 
+  {
+    payload = "{\"actual\":[{\"name\":\"httpresponse\", \"value\": "+String(httpResponseCode)+"}]}";
+    return false;
+  }
+
+  // Skip HTTP headers
+  if (!DSMRclient.find("\r\n\r\n")) 
+  {
+    Serial.println(F("Invalid response"));
+    payload = "{\"actual\":[{\"name\":\"httpresponse\", \"value\": "+String(httpResponseCode)+"}]}";
+    return false;
+  }
+
+  while(DSMRclient.connected()) 
+  {
+    if (DSMRclient.available())
+    {
+      // read an incoming lines from the server:
+      String line = DSMRclient.readStringUntil('\r');
+      line.replace("\n", "");
+      if (   (line[0] == '{') || (line[0] == ',') 
+          || (line[0] == '[') || (line[0] == ']') )
+      {
+        //-debug-Serial.print(line);
+        payload += line;
+      }
+    }
+  }
+  //-debug-Serial.println();
+  
+  // Free resources
+  DSMRclient.stop();
+
+  return true;
   
 } // dsmrGETrequest()
 
@@ -289,43 +329,54 @@ Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zel
 #include <HTTPClient.h>
 #include <Arduino_JSON.h>  // let op! Niet ArduinoJson!
 //
-#define _READINTERVAL 60000
-
-const char *ssid       = "replaceWithYourSSID";
-const char *password   = "replaceWithYourPassword";
-const char *serverPath = "http://192.168.1.106/api/v1/sm/actual";
-String     dsmrReadings;
-uint32_t   lastRead    = 0;
+#define _IS_ESP32
+#define _DSMR_IP_ADDRESS    "IP_ADDRESS_OF_YOUR_DSMR_LOGGER"
+#define _WIFI_SSID          "YOUR_WIFI_SSID"
+#define _WIFI_PASSWRD       "YOUR_WIF_PASSWORD"
+#define _READINTERVAL       60000
+//
+const char *ssid          = _WIFI_SSID;
+const char *password      = _WIFI_PASSWRD;
+//
+const char *DSMRprotocol  = "http://";
+const char *DSMRserverIP  = _DSMR_IP_ADDRESS;
+const char *DSMRrestAPI   = "/api/v1/sm/actual";
+String      payload;
+int         httpResponseCode;
+uint32_t    lastRead = 0;
 
 //--------------------------------------------------------------------------
-String dsmrGETRequest(const char* dsmrLogger) 
+bool dsmrGETrequest() 
 {
   HTTPClient DSMRclient;
     
   // Your IP address with path or Domain name with URL path 
-  DSMRclient.begin(dsmrLogger);
+  DSMRclient.begin(String(DSMRprotocol)+String(DSMRserverIP)+String(DSMRrestAPI));
   
-  // Send HTTP POST request
-  int httpResponseCode = DSMRclient.GET();
+  // Send HTTP GET request
+  httpResponseCode = DSMRclient.GET();
+
+  Serial.print("HTTP Response code: ");
+  Serial.println(httpResponseCode);
   
-  String payload = "{}"; 
+  payload = "{}"; 
   
   if (httpResponseCode > 0) 
   {
-    Serial.print("HTTP Response code: ");
-    Serial.println(httpResponseCode);
     payload = DSMRclient.getString();
   }
   else 
   {
-    Serial.print("Error code: ");
-    Serial.println(httpResponseCode);
-    return "Error";
+    payload = "{\"actual\":[{\"name\":\"httpresponse\", \"value\": "+String(httpResponseCode)+"}]}";
+    // Free resources
+    DSMRclient.end();
+    return false;
   }
+
   // Free resources
   DSMRclient.end();
-
-  return payload;
+  
+  return true;
   
 } // dsmrGETrequest()
 
@@ -397,14 +448,14 @@ String removeQuotes(JSONVar in)
 //--------------------------------------------------------------------------
 void readDsmrLogger()
 {
-  dsmrReadings = dsmrGETRequest(serverPath);
-  //Serial.println(dsmrReadings);
-  JSONVar myObject = JSON.parse(dsmrReadings);
+  dsmrGETrequest();  // this function fills 'payload' with JSON string
+
+  JSONVar myObject = JSON.parse(payload);
   
   // JSON.typeof(jsonVar) can be used to get the type of the var
   if (JSON.typeof(myObject) == "undefined") 
   {
-    Serial.println("Parsing input failed!");
+    Serial.println(F("Parsing failed!"));
     return;
   }
   // This is how the "actual" JSON object looks like:
@@ -421,31 +472,60 @@ void readDsmrLogger()
   //      ,{"name":"power_returned_l3","value":0.722,"unit":"kW"}
   //      ,{"name":"gas_delivered","value":2915.08,"unit":"m3"}
   //    ]}
-  String actualData = JSON.stringify(myObject["actual"]);
-  actualData.replace("[", "");
-  actualData.replace("]", "");
+  String topLevelData = JSON.stringify(myObject["actual"]);
+  topLevelData.replace("[", "");
+  topLevelData.replace("]", "");
 
-  for(int i = 0; i < 30; i++)
+#ifndef _IS_ARDUINO
+  Serial.println(F("== Parsed Data ===================================="));
+#endif
+
+  bool doParsing = true;
+  int  fieldNr   = 0;
+  while(doParsing)
   {
-    String field = splitJsonArray(actualData, i);
+    yield();
+    String field = splitJsonArray(topLevelData, fieldNr);
+    fieldNr++;
     if (field.length() > 0)
     {
-      Serial.println(field);
+      //-debug-Serial.println(field);
       JSONVar nextObject = JSON.parse(field);
       JSONVar dataArray = nextObject.keys();
-      //Serial.print("dataArray.length(): ");
-      //Serial.println(dataArray.length());
       for (int i = 0; i < dataArray.length(); i++) 
       {
         JSONVar value = nextObject[dataArray[i]];
-        Serial.print(removeQuotes(dataArray[i]));
-        Serial.print(" \t-> ");
-        Serial.println(removeQuotes(value));
+        if (removeQuotes(dataArray[i]) == "name")
+        {
+          Serial.print(removeQuotes(value));
+          Serial.print(F(" = "));
+        }
+        if (removeQuotes(dataArray[i]) == "value")
+        {
+          Serial.print(removeQuotes(value));
+        }
+        if (removeQuotes(dataArray[i]) == "unit")
+        {
+          Serial.print(F(" ("));
+          Serial.print(removeQuotes(value));
+          Serial.print(F(")"));
+        }
+        if (i == dataArray.length() -1)  Serial.println();
       }
     }
+    else  // zero length, end of string
+    {
+      doParsing = false;
+    }
   } // loop over all data
+
+#ifndef _IS_ARDUINO
+  Serial.println(F("=================================================="));
+  Serial.print(F("Parsed [")); Serial.print(fieldNr-1); Serial.println(F("] fields"));
+#endif
       
 } // readDsmrLogger()
+
 ```
 
 In de main loop\(\) function moet deze code komen:
@@ -460,14 +540,13 @@ void loop()
     lastRead = millis();
     Serial.println("\r\nread API from DSMR-logger...");
     readDsmrLogger();
-    Serial.println("========================================");
   }
   .
   .
 }  // loop()
 ```
 
-
+De source van deze code kun je op [github](https://github.com/mrWheel/readDSMR-logger) vinden.
 
 ### Andere systemen
 
