@@ -173,7 +173,6 @@ void setup()
   .
   // Initialize Ethernet library
   byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-  byte ipDSMR[]  = { 192, 168, 1, 106 };    // address of the DSMR-logger   
   if (!Ethernet.begin(mac)) 
   {
     Serial.println(F("Failed to configure Ethernet"));
