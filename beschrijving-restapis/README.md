@@ -109,7 +109,7 @@ geeft dit resultaat:
 Met hassOS lukt het mij niet om bij resource de hostname \(DSMR-API.local\) te gebruiken. Met het IP adres lukt het wel.
 {% endhint %}
 
-### Arduino met Ethernet shield
+### Arduino Mega met Ethernet shield
 
 Ik ben ook niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
 
@@ -121,7 +121,7 @@ Ik heb zelf geen Ethernet Shield dus deze code heb ik niet kunnen testen :-\(
 #include <SPI.h>
 #include <Arduino_JSON.h>  // let op! dit is een andere library dan "ArduinoJson"
 //
-#define _IS_ARDUINO
+#define _IS_ARDUINO_MEGA
 #define _DSMR_IP_ADDRESS    "IP_ADDRESS_OF_YOUR_DSMR_LOGGER"
 #define _READINTERVAL       60000
 //
@@ -132,6 +132,13 @@ String      payload;
 int         httpResponseCode;
 uint32_t    lastRead = 0;
 
+//--- catch specific fields for further processing -------
+//--- these are just an example! see readDsmrLogger() ----
+String  timeStamp;
+int     voltageL1, currentL1;
+float   pwrDelivered, pwrReturned;
+
+
 //--------------------------------------------------------------------------
 bool dsmrGETrequest() 
 {
@@ -140,7 +147,7 @@ bool dsmrGETrequest()
 
   payload = "{}"; 
    
-  //-debug-Serial.println(F("making GET request"));
+  //--debug-Serial.println(F("making GET request"));
   DSMRclient.get(DSMRrestAPI);
 
   // read the response code and body of the response
@@ -150,12 +157,13 @@ bool dsmrGETrequest()
 
   if (httpResponseCode <= 0)
   {
+    payload = "{\"actual\":[{\"name\":\"httpresponse\", \"value\": "+String(httpResponseCode)+"}]}";
     return false;
   }
 
   payload    = DSMRclient.responseBody();
-  //-debug-Serial.print("Response: ");
-  //-debug-Serial.println(payload);
+  //--debug-Serial.print("payload: ");
+  //--debug-Serial.println(payload);
   
   // Free resources
   DSMRclient.stop();
@@ -215,6 +223,12 @@ String      payload;
 int         httpResponseCode;
 uint32_t    lastRead = 0;
 
+//--- catch specific fields for further processing -------
+//--- these are just an example! see readDsmrLogger() ----
+String  timeStamp;
+int     voltageL1, currentL1;
+float   pwrDelivered, pwrReturned;
+
 //--------------------------------------------------------------------------
 bool dsmrGETrequest() 
 {
@@ -227,6 +241,7 @@ bool dsmrGETrequest()
   if (!DSMRclient.connect(DSMRserverIP, 80))
   {
     Serial.println(F("error connecting to DSMRlogger "));
+    payload = "{\"actual\":[{\"name\":\"connectresponse\", \"value\":\"error connecting\"}]}";
     return false;
   }
 
@@ -241,9 +256,9 @@ bool dsmrGETrequest()
 
   DSMRclient.setTimeout(2000);
 
-  //-debug-Serial.println("find(HTTP/1.1)..");
+  //--debug-Serial.println("find(HTTP/1.1)..");
   DSMRclient.find("HTTP/1.1");  // skip everything up-until "HTTP/1.1"
-  //-debug-Serial.print("DSMRclient.parseInt() ==> ");
+  //--debug-Serial.print("DSMRclient.parseInt() ==> ");
   httpResponseCode = DSMRclient.parseInt(); // parse status code
   
   Serial.print("HTTP Response code: ");
@@ -343,6 +358,12 @@ const char *DSMRrestAPI   = "/api/v1/sm/actual";
 String      payload;
 int         httpResponseCode;
 uint32_t    lastRead = 0;
+
+//--- catch specific fields for further processing -------
+//--- these are just an example! see readDsmrLogger() ----
+String  timeStamp;
+int     voltageL1, currentL1;
+float   pwrDelivered, pwrReturned;
 
 //--------------------------------------------------------------------------
 bool dsmrGETrequest() 
@@ -488,29 +509,34 @@ void readDsmrLogger()
     fieldNr++;
     if (field.length() > 0)
     {
-      //-debug-Serial.println(field);
+      //--debug-Serial.println(field);
       JSONVar nextObject = JSON.parse(field);
       JSONVar dataArray = nextObject.keys();
-      for (int i = 0; i < dataArray.length(); i++) 
+
+      //---- parse all fields and values ------
+      JSONVar jName   = nextObject[dataArray[0]]; // field Name
+      String  sName   = removeQuotes(jName);      // field Name as a String
+      JSONVar jValue  = nextObject[dataArray[1]]; // field Value
+      String  sValue  = removeQuotes(jValue);     // field Value as a String
+      String  sUnit = "";
+      if (dataArray.length() == 3)
       {
-        JSONVar value = nextObject[dataArray[i]];
-        if (removeQuotes(dataArray[i]) == "name")
-        {
-          Serial.print(removeQuotes(value));
-          Serial.print(F(" = "));
-        }
-        if (removeQuotes(dataArray[i]) == "value")
-        {
-          Serial.print(removeQuotes(value));
-        }
-        if (removeQuotes(dataArray[i]) == "unit")
-        {
-          Serial.print(F(" ("));
-          Serial.print(removeQuotes(value));
-          Serial.print(F(")"));
-        }
-        if (i == dataArray.length() -1)  Serial.println();
+        JSONVar jUnit = nextObject[dataArray[2]]; // field Unit
+        sUnit = removeQuotes(jUnit);              // field Unit as a String
       }
+      //---- list all fields and values ------
+      Serial.print(sName);  Serial.print("\t");
+      Serial.print(sValue); Serial.print(" ");
+      Serial.print(sUnit);
+      Serial.println();
+      //--- now catch some fields of interrest for further 
+      //--- processing
+      //--- you need to declare the fields to be captured global
+      if (sName == "timestamp")       timeStamp    = sValue;
+      if (sName == "voltage_l1")      voltageL1    = sValue.toInt();
+      if (sName == "current_l1")      currentL1    = sValue.toInt();
+      if (sName == "power_delivered") pwrDelivered = sValue.toFloat();
+      if (sName == "power_returned")  pwrReturned  = sValue.toFloat();
     }
     else  // zero length, end of string
     {
@@ -539,6 +565,12 @@ void loop()
     lastRead = millis();
     Serial.println("\r\nread API from DSMR-logger...");
     readDsmrLogger();
+    Serial.println(F("\r\nCaptured fields .."));
+    Serial.print(F("timestamp    : \t")); Serial.println(timeStamp);
+    Serial.print(F("voltage      : \t")); Serial.println(voltageL1);
+    Serial.print(F("current      : \t")); Serial.println(currentL1);
+    Serial.print(F("pwrDelivered : \t")); Serial.println(pwrDelivered);
+    Serial.print(F("pwrReturned  : \t")); Serial.println(pwrReturned);
   }
   .
   .
