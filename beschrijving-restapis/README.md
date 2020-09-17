@@ -113,7 +113,7 @@ Met hassOS lukt het mij niet om bij resource de hostname \(DSMR-API.local\) te g
 
 Ik ben niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
 
-Getest door _Bert Diepeveen_ \(omdat ik zelf geen ethernet shield heb\).
+Getest door _Bert Diepeveen_ \(met dank!\).
 
 ```text
 // in the main program:
