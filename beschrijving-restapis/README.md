@@ -113,7 +113,7 @@ Met hassOS lukt het mij niet om bij resource de hostname \(DSMR-API.local\) te g
 
 Ik ben ook niet erg handig met JSON libraries \(liefst parse ik de data helemaal zelf zodat ik ook alles zelf "in de hand" heb\). Het zou mij daarom ook niet verbazen als onderstaande code simpeler en beter kan.
 
-Ik heb zelf geen Ethernet Shield dus deze code heb ik niet kunnen testen :-\(
+Getest door _Bert Diepeveen_ \(omdat ik zelf geen ethernet shield heb\).
 
 ```text
 // in the main program:
@@ -496,9 +496,7 @@ void readDsmrLogger()
   topLevelData.replace("[", "");
   topLevelData.replace("]", "");
 
-#ifndef _IS_ARDUINO
   Serial.println(F("== Parsed Data ===================================="));
-#endif
 
   bool doParsing = true;
   int  fieldNr   = 0;
@@ -544,10 +542,8 @@ void readDsmrLogger()
     }
   } // loop over all data
 
-#ifndef _IS_ARDUINO
   Serial.println(F("=================================================="));
   Serial.print(F("Parsed [")); Serial.print(fieldNr-1); Serial.println(F("] fields"));
-#endif
       
 } // readDsmrLogger()
 
