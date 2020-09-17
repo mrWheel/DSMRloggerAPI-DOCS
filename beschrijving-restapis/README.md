@@ -130,7 +130,7 @@ const char *DSMRserverIP  = _DSMR_IP_ADDRESS;
 const char *DSMRrestAPI   = "/api/v1/sm/actual";
 String      payload;
 int         httpResponseCode;
-uint32_t    lastRead = 0;
+uint32_t    lastRead      = 0;
 
 //--- catch specific fields for further processing -------
 //--- these are just an example! see readDsmrLogger() ----
@@ -161,7 +161,7 @@ bool dsmrGETrequest()
     return false;
   }
 
-  payload    = DSMRclient.responseBody();
+  payload   = DSMRclient.responseBody();
   //--debug-Serial.print("payload: ");
   //--debug-Serial.println(payload);
   
@@ -221,7 +221,7 @@ const char *DSMRserverIP  = _DSMR_IP_ADDRESS;
 const char *DSMRrestAPI   = "/api/v1/sm/actual";
 String      payload;
 int         httpResponseCode;
-uint32_t    lastRead = 0;
+uint32_t    lastRead      = 0;
 
 //--- catch specific fields for further processing -------
 //--- these are just an example! see readDsmrLogger() ----
@@ -357,7 +357,7 @@ const char *DSMRserverIP  = _DSMR_IP_ADDRESS;
 const char *DSMRrestAPI   = "/api/v1/sm/actual";
 String      payload;
 int         httpResponseCode;
-uint32_t    lastRead = 0;
+uint32_t    lastRead      = 0;
 
 //--- catch specific fields for further processing -------
 //--- these are just an example! see readDsmrLogger() ----
@@ -435,9 +435,9 @@ Verder moet je de [Algemene functies](./#algemene-functies) onderaan deze pagina
 //--------------------------------------------------------------------------
 String splitJsonArray(String data, int index)
 {
-  int found = 0;
+  int found      = 0;
   int strIndex[] = {0, -1};
-  int maxIndex = data.length()-1;
+  int maxIndex   = data.length()-1;
 
   for(int i=0; i<=maxIndex && found<=index; i++)
   {
@@ -509,7 +509,7 @@ void readDsmrLogger()
     {
       //--debug-Serial.println(field);
       JSONVar nextObject = JSON.parse(field);
-      JSONVar dataArray = nextObject.keys();
+      JSONVar dataArray  = nextObject.keys();
 
       //---- parse all fields and values ------
       JSONVar jName   = nextObject[dataArray[0]]; // field Name
