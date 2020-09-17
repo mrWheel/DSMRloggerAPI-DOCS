@@ -13,7 +13,7 @@ Een restAPI kan op verschillende manieren worden aangeroepen.
 * [Javascript](./#javascript)
 * [Unix command](./#unix-command)
 * [Home Assistant](./#home-assistant)
-* [Arduino met Ethernet Shield](./#arduino-met-ethernet-shield)
+* [Arduino Mega met Ethernet Shield](./#arduino-met-ethernet-shield)
 * [ESP8266](./#esp8266-wifi)
 * [ESP32](./#esp32-wifi)
 
