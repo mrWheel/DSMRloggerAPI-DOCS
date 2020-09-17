@@ -456,13 +456,13 @@ String splitJsonArray(String data, int index)
 
 
 //--------------------------------------------------------------------------
-String removeQuotes(JSONVar in)
+String JSONVar2String(JSONVar in)
 {
   String in2 = JSON.stringify(in);
   in2.replace("\"", "");
   return in2;
     
-} // removeQuotes()
+} // JSONVar2String()
 
 
 //--------------------------------------------------------------------------
@@ -512,15 +512,12 @@ void readDsmrLogger()
       JSONVar dataArray  = nextObject.keys();
 
       //---- parse all fields and values ------
-      JSONVar jName   = nextObject[dataArray[0]]; // field Name
-      String  sName   = removeQuotes(jName);      // field Name as a String
-      JSONVar jValue  = nextObject[dataArray[1]]; // field Value
-      String  sValue  = removeQuotes(jValue);     // field Value as a String
+      String  sName   = JSONVar2String(nextObject[dataArray[0]]); // field Name as a String
+      String  sValue  = JSONVar2String(nextObject[dataArray[1]]); // field Value as a String
       String  sUnit = "";
       if (dataArray.length() == 3)
       {
-        JSONVar jUnit = nextObject[dataArray[2]]; // field Unit
-        sUnit = removeQuotes(jUnit);              // field Unit as a String
+        sUnit = JSONVar2String(nextObject[dataArray[2]]);         // field Unit as a String
       }
       //---- list all fields and values ------
       Serial.print(sName);  Serial.print("\t");
