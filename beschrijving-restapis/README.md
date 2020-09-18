@@ -162,6 +162,7 @@ bool dsmrGETrequest()
   }
 
   payload   = DSMRclient.responseBody();
+  payload.replace("\r", "");
   //--debug-Serial.print("payload: ");
   //--debug-Serial.println(payload);
   
