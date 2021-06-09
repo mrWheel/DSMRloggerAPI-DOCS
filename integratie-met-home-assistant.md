@@ -85,7 +85,16 @@ sensor:
 
 ```
 
-De power\_delivered velden worden via MQTT uitgelezen. De power\_returned via de restAPI's.
+Optioneel: Gas gebruik toevoegen (let op: is totaal gebruik):
+```text
+  - platform: mqtt
+    name: "Gas gebruik"
+    state_topic: "DSMR-API/gas_delivered"
+    unit_of_measurement: 'm3'
+    value_template: "{{ (value_json.gas_delivered[0].value | float * 1000.0) | round(1) }}"
+```
+
+De power\_delivered en gas_delivered velden worden via MQTT uitgelezen. De power\_returned via de restAPI's.
 
 Dit is het resultaat:
 
