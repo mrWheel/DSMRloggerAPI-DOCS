@@ -1,8 +1,8 @@
 # Oude Hardware \(met ESP-01 bordje\)
 
-Het is mogelijk om de nieuwe DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 hardware. Een deel van de functionaliteit, zoals _Over The Air updaten_, kun je dan echter niet gebruiken.
+~~Het is mogelijk om de nieuwe DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 hardware. Een deel van de functionaliteit, zoals _Over The Air updaten_, kun je dan echter niet gebruiken.~~
 
-Om de DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 moet je de volgende instellingen gebruiken:
+~~Om de DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 moet je de volgende instellingen gebruiken:~~
 
 ```text
 /******************** compiler options  ********************************************/
@@ -20,9 +20,9 @@ Om de DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 moet je de
 
 ```
 
-Afhankelijk van je situatie kunnen USE\_BELGIUM\_PROTOCOL, USE\_PRE40\_PROTOCOL en/of USE\_NTP\_TIME uiteraard wel gebruikt worden.
+~~Afhankelijk van je situatie kunnen USE\_BELGIUM\_PROTOCOL, USE\_PRE40\_PROTOCOL en/of USE\_NTP\_TIME uiteraard wel gebruikt worden.~~
 
-De compiler instellingen voor de v3 \(met ESP-01\) moeten als volgt staan:
+~~De compiler instellingen voor de v3 \(met ESP-01\) moeten als volgt staan:~~
 
 ```text
   Arduino-IDE settings for DSMR-logger Version 3 (ESP-01):
