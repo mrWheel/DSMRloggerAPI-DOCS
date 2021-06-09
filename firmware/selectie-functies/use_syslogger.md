@@ -1,5 +1,10 @@
 # USE\_SYSLOGGER
 
+{% hint style="danger" %}
+Deze functionaliteit is in versie 3 nog niet getest.  
+Deze nieuwe versie maakt geen gebruik meer van SPIFFS maar gebruikt van het LittleFS. De SysLogger is hier nog niet voor aangepast!
+{% endhint %}
+
 Als deze optie actief is zal de DSMRloggerAPI firmware debug informatie naar een logfile schrijven. Dit logfile kan mbv.het commando 'Q' in het telnet menu bekeken worden.
 
 Er is ook een restAPI waarmee de log regels uit de DSMR-logger opgehaald kunnen worden.

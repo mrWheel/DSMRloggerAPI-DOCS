@@ -21,17 +21,17 @@ Er verschijnt nu een drop-down window waar je de gewenste firmware kunt selecter
 
 Klik vervolgens op \[Flash Firmware\]
 
-### Flash SPIFFS
+### Flash File Systeem
 
-Om een nieuw bestands systeem op de DSMR-logger te flashen klik je op de knop \[Choose file\] onder de kop "Selecteer een **.spiffs.bin** bestand".
+Om een nieuw bestands systeem op de DSMR-logger te flashen klik je op de knop \[Choose file\] onder de kop "Selecteer een **.mklittlefs.bin** bestand".
 
 ![](.gitbook/assets/choosespiffs.png)
 
-Er verschijnt nu een drop-down window waar je het gewenste spiffs bestand systeem kunt selecteren.
+Er verschijnt nu een drop-down window waar je het gewenste xyz.mklittlefs.bin bestand systeem kunt selecteren.
 
 ![](.gitbook/assets/choose_spiffs_bin.png)
 
-Klik vervolgens op de knop \[Flash Spiffs\]
+Klik vervolgens op de knop \[Flash FileSYS\]
 
 ### Flashen is geslaagd
 

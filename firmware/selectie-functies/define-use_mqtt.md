@@ -55,7 +55,9 @@ Via **`FSexplorer -> Edit instellingen -> Settings`** kun je gegevens over de te
         is dit &quot;DSMR-API&quot;.</td>
     </tr>
   </tbody>
-</table>De DSMR-logger zal iedere `MQTT Interval` seconden de volgende berichten naar de MQTT Broker sturen:
+</table>
+
+De DSMR-logger zal iedere `MQTT Interval` seconden de volgende berichten naar de MQTT Broker sturen:
 
 ```text
 

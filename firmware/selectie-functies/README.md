@@ -16,14 +16,16 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><a href="define-is_esp12.md">USE_REQUEST_PIN</a>
-      </td>
-      <td style="text-align:left">Geeft aan of je de firmware voor een ESP12 of andere (ESP-01) processor
-        compileren</td>
-      <td style="text-align:left">
-        <p>Voor v4.0 en hoger: NEE</p>
-        <p>Voor andere versies: JA</p>
-      </td>
+      <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-is_esp12.md"><del>USE_REQUEST_PIN</del></a>&lt;del&gt;&lt;/del&gt;</td>
+      <td
+      style="text-align:left"><del>Geeft aan of je de firmware voor een ESP12 of andere (ESP-01) processor compileren</del>
+        </td>
+        <td style="text-align:left">
+          <p><del>Voor v4.0 en hoger: NEE</del>
+          </p>
+          <p><del>Voor andere versies: JA</del>
+          </p>
+        </td>
     </tr>
     <tr>
       <td style="text-align:left"><a href="define-use_update_server.md">USE_UPDATE_SERVER</a>
@@ -33,31 +35,39 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
       <td style="text-align:left">JA</td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="define-use_belgium_protocol.md">USE_BELGIUM_PROTOCOL</a>
-      </td>
-      <td style="text-align:left">Voor Belgische Slimme Meters</td>
-      <td style="text-align:left">
-        <p>JA</p>
-        <p>niet in combinatie met USE_PRE40_PROTOCOL</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><a href="define-use_pre40_protocol.md">USE_PRE40_PROTOCOL</a>
-      </td>
-      <td style="text-align:left">Voor &quot;oude&quot; Slimme Meters</td>
-      <td style="text-align:left">
-        <p>JA</p>
-        <p>niet in combinatie met USE_BELGIUM_PROTOCOL</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><a href="define-use_ntp_time.md">USE_NTP_TIME</a>
-      </td>
-      <td style="text-align:left">Gebruik de tijd van een NTP server i.p.v. die van de Slimme Meter</td>
+      <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-use_belgium_protocol.md"><del>USE_BELGIUM_PROTOCOL</del></a>&lt;del&gt;&lt;/del&gt;</td>
       <td
-      style="text-align:left">
-        <p>JA</p>
-        <p>alleen in combinatie met USE_PRE40_PROTOCOL</p>
+      style="text-align:left"><del>Voor Belgische Slimme Meters</del>
+        </td>
+        <td style="text-align:left">
+          <p><del>JA</del>
+          </p>
+          <p><del>niet in combinatie met USE_PRE40_PROTOCOL</del>
+          </p>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-use_pre40_protocol.md"><del>USE_PRE40_PROTOCOL</del></a>&lt;del&gt;&lt;/del&gt;</td>
+      <td
+      style="text-align:left"><del>Voor &quot;oude&quot; Slimme Meters</del>
+        </td>
+        <td style="text-align:left">
+          <p><del>JA</del>
+          </p>
+          <p><del>niet in combinatie met USE_BELGIUM_PROTOCOL</del>
+          </p>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-use_ntp_time.md"><del>USE_NTP_TIME</del></a>&lt;del&gt;&lt;/del&gt;</td>
+      <td
+      style="text-align:left"><del>Gebruik de tijd van een NTP server i.p.v. die van de Slimme Meter</del>
+        </td>
+        <td style="text-align:left">
+          <p><del>JA</del>
+          </p>
+          <p><del>alleen in combinatie met USE_PRE40_PROTOCOL</del>
+          </p>
         </td>
     </tr>
     <tr>
@@ -107,11 +117,7 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
 ```text
 
 /******************** compiler options  ********************************************/
-#define IS_ESP12                  // define if it's a 'bare' ESP-12 (no reset/flash functionality on board)
 #define USE_UPDATE_SERVER         // define if there is enough memory and updateServer to be used
-//  #define USE_BELGIUM_PROTOCOL      // define if Slimme Meter is a Belgium Smart Meter
-//  #define USE_PRE40_PROTOCOL        // define if Slimme Meter is pre DSMR 4.0 (2.2 .. 3.0)
-//  #define USE_NTP_TIME              // define to generate Timestamp from NTP (Only Winter Time for now)
 //  #define HAS_NO_SLIMMEMETER        // define for testing only!
 #define USE_MQTT                  // define if you want to use MQTT
 #define USE_MINDERGAS             // define if you want to update mindergas (also add token down below)

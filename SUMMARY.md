@@ -28,6 +28,7 @@
   * [Firmware Flashen](firmware/firmware-flashen.md)
   * [Data map Flashen](firmware/data-map-flashen.md)
 * [FSexplorer](fsexplorer.md)
+* [FSmanager](fsmanager.md)
 * [Update Server](update-server.md)
 * [DSMR-editor](dsmr-editor.md)
 * [DSMRloggerAPI GUI](dsmrloggerapi-gui.md)

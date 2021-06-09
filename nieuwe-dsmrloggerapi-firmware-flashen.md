@@ -13,6 +13,10 @@ Hoe je de firmware moet upgraden van _DSMRlogger**WS**_ naar _DSMRlogger**API**_
 
 Op [github](https://github.com/mrWheel/DSMRloggerAPI) staan van de major releases, voor de meest voorkomende situaties, binaries van zowel de firmware als van het SPIFFS in .zip formaat. 
 
+{% hint style="success" %}
+Er komt een nieuwe versie van de DSMRloggerAPI firmware aan \(nu in Beta Test\) waarbij er nog maar één versie van de firmware voor álle \(mij bekende\) Slimme Meters nodig is.
+{% endhint %}
+
 ![](.gitbook/assets/githubmain.png)
 
 Klik op "[releases](https://github.com/mrWheel/DSMRloggerAPI/releases)" en download het ino.bin.zip bestand dat voor jouw situatie geschikt is \(deze staan onder iedere release beschrijving bij "_Assets_"\).

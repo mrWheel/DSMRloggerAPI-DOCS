@@ -1,6 +1,6 @@
 # License
 
-### MIT License <a id="mit-license"></a>
+## MIT License <a id="mit-license"></a>
 
 Copyright © 2018 - 2021 Willem Aandewiel
 

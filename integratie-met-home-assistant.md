@@ -82,10 +82,10 @@ sensor:
     resource: http://192.168.2.106/api/v1/sm/fields/power_returned_l3
     unit_of_measurement: 'Watt'
     value_template: '{{ (value_json.fields[1].value | float * 1000.0) | round(1) }}'
-
 ```
 
-Optioneel: Gas gebruik toevoegen (let op: is totaal gebruik):
+Optioneel: Gas gebruik toevoegen \(let op: is totaal gebruik\):
+
 ```text
   - platform: mqtt
     name: "Gas gebruik"
@@ -94,7 +94,7 @@ Optioneel: Gas gebruik toevoegen (let op: is totaal gebruik):
     value_template: "{{ (value_json.gas_delivered[0].value | float * 1000.0) | round(1) }}"
 ```
 
-in deze voorbeelden worden de power\_delivered en gas_delivered velden via MQTT uitgelezen en de power\_returned via de restAPI's. Uiteraard kun je voor alle velden de manier van uitlezen gebruiken die voor jou het prettigste werkt.
+in deze voorbeelden worden de power\_delivered en gas\_delivered velden via MQTT uitgelezen en de power\_returned via de restAPI's. Uiteraard kun je voor alle velden de manier van uitlezen gebruiken die voor jou het prettigste werkt.
 
 Dit is het resultaat:
 
