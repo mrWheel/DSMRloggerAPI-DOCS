@@ -94,7 +94,7 @@ Optioneel: Gas gebruik toevoegen (let op: is totaal gebruik):
     value_template: "{{ (value_json.gas_delivered[0].value | float * 1000.0) | round(1) }}"
 ```
 
-De power\_delivered en gas_delivered velden worden via MQTT uitgelezen. De power\_returned via de restAPI's.
+in deze voorbeelden worden de power\_delivered en gas_delivered velden via MQTT uitgelezen en de power\_returned via de restAPI's. Uiteraard kun je voor alle velden de manier van uitlezen gebruiken die voor jou het prettigste werkt.
 
 Dit is het resultaat:
 
