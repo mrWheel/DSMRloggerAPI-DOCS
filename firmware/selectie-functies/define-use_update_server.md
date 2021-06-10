@@ -1,6 +1,6 @@
 # USE\_UPDATE\_SERVER
 
-Met deze optie wordt het mogelijk om nieuwe Firmware naar de DSMR-logger te flashen door in de FSexplorer op de knop \[Update Firmware\] te klikken
+Met deze optie wordt het mogelijk om nieuwe Firmware naar de DSMR-logger te flashen door in de FSexplorer op de knop `[Update Firmware]` te klikken
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/DSMRloggerWS_FSexplorer.png)
 
@@ -8,7 +8,7 @@ en vervolgens in de Flash Utility ..
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/DSMR-logger_FlashUtility.png)
 
-.. op \[Choose file\] te klikken en daarna op \[Flash Firmware\]
+.. op `[Choose file]` te klikken en daarna op `[Flash Firmware]`
 
 {% hint style="info" %}
 Let op!   

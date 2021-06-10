@@ -24,7 +24,7 @@ Vervolgens moeten de `Boards` settings als volgt worden ingevuld:
 | :--- | :--- | :--- |
 |  | Board | "Generic ESP8266 Module" |
 |  | Upload Speed | "115200" |
-|  | CPU Frequency | "80MHz" |
+|  | CPU Frequency | "80MHz" \(160MHz\) |
 |  | Flash Frequency | "40MHz" |
 |  | Flash Mode | "DIO" of "DOUT \(compatible\)" |
 |  | Flash Size | "4MB \(**FS: 2MB** OAT:~1019KB\)" **&lt;&lt;== let op! 2MB** |
@@ -82,21 +82,21 @@ klikken maar in het \[**`Sketch`**\] drop-down menu de keuze **`Upload Compiled 
 
 De firmware wordt nu gecompileerd en in de Arduino Sketch map waar de DSMRloggerAPI firmware ook staat neergezet. Het bestand heeft de extensie **`.bin`**.
 
-Als de firmware gecompileerd is klik je op de DSMR-logger pagina op het ![](https://mrwheel.github.io/DSMRloggerWS/img/FSexplorer.png) icoontje.
+Als de firmware gecompileerd is klik je op de DSMR-logger pagina op het ![](../.gitbook/assets/fsmanagericoon.png) icoontje.
 
-![](https://mrwheel.github.io/DSMRloggerWS/img/DSMRloggerWS_FSexplorer.png)
+![](../.gitbook/assets/screenshot-2021-06-09-at-14.03.47.png)
 
-In de FSexplorer klik je op de knop **`Update Firmware`**
+In de FSmanager klik je op de knop `[Update Firmware]`
 
-Er verschijnt nu een scherm waarin je een firmware bestand \(de naam eindigt op **`.bin`** met ergens in de naam ook **`.ino.`**\) kunt kiezen door op de bovenste knop **`Choose File`** te klikken.
+Er verschijnt nu een scherm waarin je een firmware bestand \(de naam eindigt op **`.bin`** met ergens in de naam ook **`.ino.`**\) kunt kiezen door op de bovenste knop **`[Choose File]`** te klikken.
 
-![](https://mrwheel.github.io/DSMRloggerWS/img/DSMR-FlashUtility.png)
+![](../.gitbook/assets/screenshot-2021-06-10-at-10.13.14.png)
 
 Selecteer uit het **`popUp scherm`** dat nu verschijnt het binary file dat je wilt uploaden ..
 
 ![](../.gitbook/assets/choose_ino_bin.png)
 
-.. klik op \[Choose\] \(of \[Open\]\) en daarna op de knop **`flash Firmware`** 
+.. klik op `[Choose]` \(of \[Open\]\) en daarna op de knop **`[Flash Firmware]`** 
 
 {% hint style="danger" %}
 Let op!  

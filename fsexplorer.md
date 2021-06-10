@@ -1,5 +1,9 @@
 # FSexplorer
 
+{% hint style="danger" %}
+Vervallen vanaf versie 3
+{% endhint %}
+
 ~~Met de FSexplorer is het mogelijk bestanden op het SPIFFS \(SPI Flash File System\) te plaatsen of ze ervan te verwijderen. Ook kan de inhoud van bestanden die aanwezig zijn op het SPIFFS worden getoond \(dit is niet mogelijk met .html bestanden omdat deze direct door de browser geïnterpreteerd -en dus uitgevoerd- worden\).~~
 
 ~~Daarnaast kent de FSexplorer nog de volgende functies:~~

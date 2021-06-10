@@ -2,7 +2,7 @@
 
 De DSMRloggerAPI heeft de mogelijkheid om meterstanden en instellingen via de browser te veranderen.
 
-Je start de **`DSMR-editor`** door in het hoofdscherm op het ![](.gitbook/assets/settings.png) icoontje te klikken.
+Je start de **`DSMR-editor`** door in het hoofdscherm op het ![](.gitbook/assets/settingsicoon.png) icoontje te klikken.
 
 ![](.gitbook/assets/settingseditorstart.png)
 
@@ -26,13 +26,22 @@ Sommige browser vertalen decimale punten in komma's! Dit is erg verwarrend want 
 
 ### Settings aanpassen
 
-![Edit Settings](.gitbook/assets/editsettings.png)
+![](.gitbook/assets/settings%20%281%29.png)
 
 
 
 #### Hostname
 
 De default Hostname is DSMR-API. De documentatie gaat ook uit van deze default hostname. Mocht je de hostname hier veranderen dan moet je bij het lezen van de documentatie overal "_**DSMR-API**_" vervangen door de hier ingevoerde hostname \(in bovenstaand plaatje is de hostname veranderd in "_**DSMR-108**_"\).
+
+#### Use Pré DSMR 40 \(0=No, 1=Yes\)
+
+Zet deze rubriek op "1" als je een DSMR 2+ of DSMR 3+ Slimme Meter hebt.  
+Deze instelling wordt pas actief nadat de DSMR-logger opnieuw is opgestart.
+
+#### MBus-1 \(2,3,4\) Type Meter
+
+Voer hier het ID in van de meter die op de betreffende MBus is aangesloten. Het ID van Gas meters is "003". Als in deze installatie de Gas meter is aangesloten op MBus-2 voer je voor deze rubriek "3" in. Bij MBus rubrieken waar niets op is aangesloten voer je een "0" in.
 
 #### SM Has Fase Info \(0=No, 1=Yes\)
 
@@ -65,7 +74,7 @@ Hier kun je invoeren óf en wat voor OLED schermpje op de DSMR-logger is aangesl
 
 #### MQTT Top Topic
 
-Dit is het topic waarmee de MQTT berichten naar de broker worden verstuurd. Standaard is het Top Topic "_**DSMR-API**_". In bovenstaand plaatje is het Top Topic veranderd in "_**DSMR-PRD**_".
+Dit is het topic waarmee de MQTT berichten naar de broker worden verstuurd. Standaard is het Top Topic "_**DSMR-API**_". In bovenstaand plaatje is het Top Topic veranderd in "_**DSMR-TST3**_".
 
 #### Verzend MQTT berichten
 

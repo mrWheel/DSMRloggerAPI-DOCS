@@ -10,6 +10,7 @@
   * [Arduino IDE](voorbereiding/arduino-ide.md)
   * [ESP8266 Core](voorbereiding/esp8266-core.md)
   * [ESP8266 Data Upload Tool](voorbereiding/esp8266-data-upload-tool.md)
+  * [ESP8266 LittleFS Data Upload Tool](voorbereiding/esp8266-littlefs-data-upload-tool.md)
   * [Installatie Bibliotheken](voorbereiding/installatie-bibliotheken.md)
 * [DSMRloggerAPI firmware](firmware/README.md)
   * [Installeren benodigde bibliotheken](firmware/benodigde-bibliotheken.md)

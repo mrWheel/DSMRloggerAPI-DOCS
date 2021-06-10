@@ -18,7 +18,10 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
     <tr>
       <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-is_esp12.md"><del>USE_REQUEST_PIN</del></a>&lt;del&gt;&lt;/del&gt;</td>
       <td
-      style="text-align:left"><del>Geeft aan of je de firmware voor een ESP12 of andere (ESP-01) processor compileren</del>
+      style="text-align:left">
+        <p><del>Geeft aan of je de firmware voor een ESP12 of andere (ESP-01) processor compileren</del>
+        </p>
+        <p>Vervallen vanaf v3</p>
         </td>
         <td style="text-align:left">
           <p><del>Voor v4.0 en hoger: NEE</del>
@@ -37,7 +40,10 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
     <tr>
       <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-use_belgium_protocol.md"><del>USE_BELGIUM_PROTOCOL</del></a>&lt;del&gt;&lt;/del&gt;</td>
       <td
-      style="text-align:left"><del>Voor Belgische Slimme Meters</del>
+      style="text-align:left">
+        <p><del>Voor Belgische Slimme Meters</del>
+        </p>
+        <p>Vervallen vanaf v3</p>
         </td>
         <td style="text-align:left">
           <p><del>JA</del>
@@ -49,7 +55,10 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
     <tr>
       <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-use_pre40_protocol.md"><del>USE_PRE40_PROTOCOL</del></a>&lt;del&gt;&lt;/del&gt;</td>
       <td
-      style="text-align:left"><del>Voor &quot;oude&quot; Slimme Meters</del>
+      style="text-align:left">
+        <p><del>Voor &quot;oude&quot; Slimme Meters</del>
+        </p>
+        <p>Vervallen vanaf v3</p>
         </td>
         <td style="text-align:left">
           <p><del>JA</del>
@@ -61,7 +70,10 @@ In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is
     <tr>
       <td style="text-align:left">&lt;del&gt;&lt;/del&gt;<a href="define-use_ntp_time.md"><del>USE_NTP_TIME</del></a>&lt;del&gt;&lt;/del&gt;</td>
       <td
-      style="text-align:left"><del>Gebruik de tijd van een NTP server i.p.v. die van de Slimme Meter</del>
+      style="text-align:left">
+        <p><del>Gebruik de tijd van een NTP server i.p.v. die van de Slimme Meter</del>
+        </p>
+        <p>Vervallen vanaf v3</p>
         </td>
         <td style="text-align:left">
           <p><del>JA</del>

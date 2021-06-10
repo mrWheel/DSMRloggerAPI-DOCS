@@ -1,5 +1,9 @@
 # USE\_BELGIUM\_PROTOCOL
 
+{% hint style="danger" %}
+Vervallen vanaf v3
+{% endhint %}
+
 ~~De DSMRloggerAPI firmware kan ook overweg met Belgische Slimme Meters die aan de DSMR 5.0 standaard voldoen.~~
 
 {% hint style="danger" %}

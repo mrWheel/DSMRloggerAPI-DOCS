@@ -1,5 +1,9 @@
 # Oude Hardware \(met ESP-01 bordje\)
 
+{% hint style="danger" %}
+De omvang van de DSMTloggerAPI firmware is te groot geworden voor een ESP-01 bordje. Het is wél mogelijk om de 1MB flash chip van de ESP-01 te vervangen door een 4MB flash chip, waarna er wél voldoende ruimte is voor deze firmware!
+{% endhint %}
+
 ~~Het is mogelijk om de nieuwe DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 hardware. Een deel van de functionaliteit, zoals _Over The Air updaten_, kun je dan echter niet gebruiken.~~
 
 ~~Om de DSMRloggerAPI firmware geschikt te maken voor de DSMR-logger V3 moet je de volgende instellingen gebruiken:~~

@@ -18,6 +18,10 @@ Controleer daarom regelmatig op updates.
 
 De DSMR-logger is een hardware en software systeem waarmee de Slimme Meter \(~~vanaf _DSMR_ versie 4.0~~\) kan worden uitgelezen. De uitgelezen data \(telegrammen\) worden in de DSMR-logger opgeslagen en kunnen met behulp van gestandaardiseerde restAPI call's worden opgevraagd.
 
+{% hint style="success" %}
+Vanaf versie 3 kan de DSMRloggerAPI firmware overweg met vrijwel alle, mij bekende, Slimme Meters \(_DSMR 2+, DSMR3+, DSMR4+, DSMR5+_ en de _Belgische varianten_ hiervan\). Het probleem van sommige installaties met de voor geprogrammeerde aansluiting van de Gas Meter op MBus-1 is vanaf versie 3 via settingen aan te passen.
+{% endhint %}
+
 #### Meer informatie
 
 * [Deze post](https://willem.aandewiel.nl/index.php/2018/08/28/slimme-meter-uitlezer/) beschrijft het eerste idee achter de Slimme Meter uitlezer.
@@ -36,7 +40,7 @@ In dit document worden de volgende begrippen gebruikt:
 | DSMR-logger | de Hardware \(Let op! Streepje tussen _DSMR_ en _logger\)_ |
 | DSMR-logger v4 \(of Versie 4\) | Versie 4 van de Hardware.  Deze hardware is de basis voor dit project. |
 | DSMR-logger v4.5 \(of Versie 4.5\) | [Versie 4.5](https://opencircuit.nl/Product/Slimme-meter-uitlezer-V4.5-Geassembleerd) van de Hardware Deze hardware is een verbetering van de v4 hardware. Standaard heeft deze hardware een 5Volt DC Jack-Plug voor gebruik van een externe voeding en een jumper om de voeding te selecteren vanuit de Slimme Meter of de Jack-Plug. Bij gebruik van de Jack-Plug wordt de 5Volt van de Slimme Meter ontkoppelt. De draadbruggen voor de selectie van de signalen naar een OLED display zijn nu standaard \[GND,3v3,SCL,SDA\] doorverbonden maar deze kunnen, door de verbindingen aan de achterkant van de PCB door te snijden, ook aangepast worden. |
-| DSMRloggerAPI | De firmware voor de DSMR-logger v4 Deze firmware maakt intensief gebruik van restAPI's. Let op! De firmware heeft _**geen**_ streepje \(-\) tussen "DSMR" en "logger" |
+| DSMRloggerAPI | De firmware voor de DSMR-logger v4 Deze firmware maakt intensief gebruik van restAPI's. **Let op!** De firmware heeft _**geen**_ streepje \(**-**\) tussen "DSMR" en "logger" |
 | ESP-12 | Een bordje met een ESP8266 processor en **4MB** Flash Geheugen Dit bordje wordt gebruikt in de DSMR-logger v4 |
 
 Een volledige beschrijving van dit project kun je [hier](https://willem.aandewiel.nl/index.php/2020/02/28/restapis-zijn-hip-nieuwe-firmware-voor-de-dsmr-logger/) vinden.

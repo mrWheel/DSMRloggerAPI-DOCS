@@ -8,7 +8,7 @@ Je kunt de Software [hier](https://www.arduino.cc/en/Main/Software) downloaden.
 ![](https://mrwheel.github.io/DSMRloggerWS/img/DownloadIDE.png)
 
 {% hint style="info" %}
-De DSMRloggerAPI firmware is getest met de ArduinoIDE v1.8.8, v1.8.9 en v1.8.10
+De DSMRloggerAPI firmware is getest met de ArduinoIDE v1.8.13
 {% endhint %}
 
 {% hint style="danger" %}

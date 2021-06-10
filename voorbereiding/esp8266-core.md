@@ -20,9 +20,9 @@ Eventueel kun je ook het pad waar je projecten staan \(de `Sketchbook Location`\
 
 De andere instellingen kun je naar behoefte aanpassen. Hierboven staan de instellingen die ik prettig vind.
 
-Na het maken van aanpassingen klik je op \[OK\].
+Na het maken van aanpassingen klik je op `[OK]`.
 
-Ga nu via de ArduinoIDE menu-balk naar \[**`Tools`**\] -&gt; \[**`Board`**\] -&gt; \[**`Boards Manager`**\].
+Ga nu via de ArduinoIDE menu-balk naar `[tools]`-&gt; `[Board]` -&gt; `[Boards Manager]`.
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/IDE_BoardsManager.png)
 
@@ -30,10 +30,10 @@ Voer bij filter “esp8266” in.
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/IDE_UpdateInstallESP8266core.png)
 
-Selecteer de versie die je wilt gaan gebruiken en klik op \[**`Install`**\].
+Selecteer de versie die je wilt gaan gebruiken en klik op `[Install]`.
 
 {% hint style="warning" %}
-Let op! De DSMRloggerAPI firmware is getest met **versie 2.6.2, 2.6.3** en met **versie 2.7.1** van de Arduino/ESP8266 core.
+Let op! De DSMRloggerAPI firmware is getest met **versie 2.7.4** van de Arduino/ESP8266 core.
 {% endhint %}
 
   

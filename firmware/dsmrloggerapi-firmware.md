@@ -13,11 +13,11 @@ Als je niet handig bent met **`git`** raad ik je aan de repository als een **`.z
 
 ![](../.gitbook/assets/dsmrloggerapi-github.png)
 
-Klik op de groene knop \[Clone or Download\] ..
+Klik op de groene knop `[Clone or Download]` ..
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/GIT_Clone2.png)
 
-.. en selecteer \[Download ZIP\]
+.. en selecteer `[Download ZIP]`
 
 Er volgt een scherm als dit:
 

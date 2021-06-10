@@ -1,6 +1,8 @@
 # USE\_REQUEST\_PIN
 
-
+{% hint style="danger" %}
+Vervallen vanaf v3
+{% endhint %}
 
 ~~Met deze optie zal de DSMR-logger de Data Request pin van de Slimme Meter 'hoog' maken als hij een Telegram kan ontvangen. Na het ontvangen van een volledig Telegram zal de Data Request pin weer 'laag' worden gemaakt waardoor de Slimme Meter stopt met het sturen van Telegrammen.~~
 

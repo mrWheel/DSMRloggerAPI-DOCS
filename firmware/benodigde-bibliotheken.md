@@ -61,12 +61,14 @@ Deze bibliotheek is nodig vanaf versie 2.6.2 van de Arduino/ESP8266 core. Je kun
 
 #### ESP\_SysLogger
 
-Deze bibliotheek is alleen nodig als je USE\_SYSLOGGER defined. Je kunt de bibliotheek [hier](https://github.com/mrWheel/ESP_SysLogger) downloaden \(vanaf v1.6.3 commit [43eb15681125442addaf8b697f2b8557d4afa300](https://github.com/mrWheel/ESP_SysLogger/commit/43eb15681125442addaf8b697f2b8557d4afa300)\).
+Deze bibliotheek is alleen nodig als je USE\_SYSLOGGER defined. Je kunt de bibliotheek [hier](https://github.com/mrWheel/ESP_SysLogger) downloaden \(vanaf v1.6.3 commit [43eb15681125442addaf8b697f2b8557d4afa300](https://github.com/mrWheel/ESP_SysLogger/commit/43eb15681125442addaf8b697f2b8557d4afa300)\).  
+**Pas op!** \(nog\) Niet geschikt voor het LittleFS!
 
 #### Overige libraries <a id="overige-libraries"></a>
 
-Onderstaande libraries zijn onderdeel van de `ESP8266 Core` **en moeten dus niet handmatig geïnstalleerd worden**!
+Onderstaande libraries zijn onderdeel van de `ESP8266 Core` en moeten dus **niet** handmatig geïnstalleerd worden!
 
+* LittleFS
 * ESP8266WiFi
 * ESP8266WebServer
 * WiFiUdp

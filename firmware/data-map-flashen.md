@@ -45,9 +45,9 @@ Bij het _**Over The Air**_ uploaden van de bestanden uit de **`data`**-map kan d
 
 Alle **`Board`** gegevens blijven gelijk alleen selecteer je een **`Serial Port`** die **nergens op is aangesloten**!
 
-Start vervolgens het `ESP8266 Sketch Data Upload`-tool
+Start vervolgens het `ESP8266 LittleFS Data Upload`-tool
 
-![](https://mrwheel.github.io/DSMRloggerWS/img/ESP8266SketchUploadTool.png)
+![](../.gitbook/assets/screenshot-2021-06-10-at-11.09.29.png)
 
 Omdat je een **`Serial Port`** hebt geselecteerd waar niets op is aangesloten zal deze opdracht met een foutmelding eindigen.  
 Ondertussen is er wél een **`.spiffs.bin`** bestand in het **`build-path`** neergezet.
@@ -56,24 +56,24 @@ Ondertussen is er wél een **`.spiffs.bin`** bestand in het **`build-path`** nee
 
 {% hint style="danger" %}
 Let op!  
-Hou er rekening mee dat eventuele data-bestanden die al op SPIFFS stonden nu weg zijn! Als je ze niet kwijt wil moet je er eerst een kopie van maken op je computer en deze, na het flashen van SPIFFS weer terug zetten \(dat kan met de DSMR-logger FSexplorer ![](https://mrwheel.github.io/DSMRloggerWS/img/FSexplorer.png)\)!
+Hou er rekening mee dat eventuele data-bestanden die al op het File Systeem stonden nu weg zijn! Als je ze niet kwijt wil moet je er eerst een kopie van maken op je computer en deze, na het flashen van het LittleFS weer terug zetten \(dat kan met de DSMR-logger FSmanager ![](../.gitbook/assets/fsmanagericoon.png)\)!
 {% endhint %}
 
-Klik nu op de DSMR-logger pagina op het ![](https://mrwheel.github.io/DSMRloggerWS/img/FSexplorer.png) icoontje.
+Klik nu op de DSMR-logger pagina op het ![](../.gitbook/assets/fsmanagericoon.png) icoontje.
 
-In de FSexplorer klik je op de knop **`Update Firmware`**
+In de FSmanager klik je op de knop **`[Update Firmware]`**
 
-![](https://mrwheel.github.io/DSMRloggerWS/img/DSMRloggerWS_FSexplorer.png)
+![](../.gitbook/assets/screenshot-2021-06-09-at-14.03.47.png)
 
-Er verschijnt nu een scherm waarin je een SPIFFS bestand \(de naam eindigt op **`.spiffs.bin`**\) kunt kiezen door op de onderste knop **`Choose File`** te klikken.
+Er verschijnt nu een scherm waarin je een mklittlefs bestand \(de naam eindigt op **`.mklittlefs.bin`**\) kunt kiezen door op de onderste knop **`[Choose File]`** te klikken.
 
-![](../.gitbook/assets/choosespiffs.png)
+![](../.gitbook/assets/screenshot-2021-06-10-at-10.16.17.png)
 
 Selecteer uit het `popUp scherm` dat nu verschijnt het binary file dat je wilt uploaden ..
 
-![](../.gitbook/assets/choose_spiffs_bin.png)
+![](../.gitbook/assets/screenshot-2021-06-10-at-10.16.00.png)
 
-.. klik op \[Open\] en daarna op de knop **`Flash Spiffs`**
+.. klik op `[Open]` en daarna op de knop **`[Flash FileSystem]`**
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/DSMR-FlashWait4Reboot.png)
 
@@ -81,7 +81,7 @@ Na enige tijd krijg je de melding dat de upload is geslaagd en dat de DSMR-logge
 
 {% hint style="warning" %}
 Let op!  
-Het komt regelmatig voor dat het scherm niet automatisch ge-refreshed wordt \(dit lijkt te maken te hebben met de omvang van de firmware die je upload\). Klik in dat geval, na ongeveer 3 minuten, op de tekst "_**hier**_"  
+Het komt soms voor dat het scherm niet automatisch ge-refreshed wordt \(dit lijkt te maken te hebben met de omvang van de firmware die je upload\). Klik in dat geval, na ongeveer 3 minuten, op de tekst "_**hier**_"  
   
       Als het lijkt of er niets gebeurd, wacht dan ongeveer drie minuten en klik daarna **hier**.  
   

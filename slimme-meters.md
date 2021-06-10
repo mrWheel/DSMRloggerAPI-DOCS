@@ -72,7 +72,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
     <tr>
       <td style="text-align:left">Landys</td>
       <td style="text-align:left">ZCF120ABd</td>
-      <td style="text-align:left">1, 2, 4, 5, 6</td>
+      <td style="text-align:left">2, 6</td>
       <td style="text-align:left">Nee</td>
       <td style="text-align:left">2.2+</td>
       <td style="text-align:left">
@@ -94,7 +94,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
     <tr>
       <td style="text-align:left">ISKRA</td>
       <td style="text-align:left">MT382</td>
-      <td style="text-align:left">1, 2, 4,?</td>
+      <td style="text-align:left">2,?</td>
       <td style="text-align:left">JA</td>
       <td style="text-align:left">2.2+</td>
       <td style="text-align:left"></td>
@@ -139,7 +139,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
     <tr>
       <td style="text-align:left">KAIFA</td>
       <td style="text-align:left">MA340C</td>
-      <td style="text-align:left">1,2,6,7</td>
+      <td style="text-align:left">2,6,7</td>
       <td style="text-align:left">JA</td>
       <td style="text-align:left">?</td>
       <td style="text-align:left"></td>
@@ -148,7 +148,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
     <tr>
       <td style="text-align:left">Kamstrup</td>
       <td style="text-align:left">162</td>
-      <td style="text-align:left">1, 2, 4, 5, 6</td>
+      <td style="text-align:left">2,6</td>
       <td style="text-align:left">JA</td>
       <td style="text-align:left">2.2</td>
       <td style="text-align:left">1-Fase</td>
@@ -184,7 +184,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
     <tr>
       <td style="text-align:left">Sagemcom</td>
       <td style="text-align:left">S211</td>
-      <td style="text-align:left">1, 2, 3, 6</td>
+      <td style="text-align:left">2, 6</td>
       <td style="text-align:left">Nee</td>
       <td style="text-align:left">?</td>
       <td style="text-align:left">1-Fase</td>
@@ -193,7 +193,7 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
     <tr>
       <td style="text-align:left">Seconia</td>
       <td style="text-align:left">T211</td>
-      <td style="text-align:left">1,2,3,6</td>
+      <td style="text-align:left">2,6</td>
       <td style="text-align:left">Nee</td>
       <td style="text-align:left">?</td>
       <td style="text-align:left">Geen info per fase</td>
@@ -204,11 +204,11 @@ Onderstaande tabel geeft de gegevens weer zoals deze door gebruikers worden geme
 
 #### Compile Options
 
-1. USE\_REQUEST\_PIN
+1. ~~USE\_REQUEST\_PIN~~
 2. USE\_UPDATE\_SERVER
-3. USE\_BELGIUM\_PROTOCOL
-4. USE\_PRE40\_PROTOCOL
-5. USE\_NTP\_TIME
+3. ~~USE\_BELGIUM\_PROTOCOL~~
+4. ~~USE\_PRE40\_PROTOCOL~~
+5. ~~USE\_NTP\_TIME~~
 6. USE\_MQTT
 7. USE\_MINDERGAS
 8. USE\_SYSLOGGER

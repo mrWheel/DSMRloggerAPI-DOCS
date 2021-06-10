@@ -1,5 +1,9 @@
 # USE\_PRE40\_PROTOCOL
 
+{% hint style="danger" %}
+Vervallen vanaf v3
+{% endhint %}
+
 ~~De DSMRloggerAPI firmware kan ook overweg met Slimme Meters die nog niet aan de DSMR 4.0 standaard voldoen.~~
 
 {% hint style="danger" %}
