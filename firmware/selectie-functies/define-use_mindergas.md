@@ -2,7 +2,7 @@
 
 Met deze optie wordt de functionaliteit om gasverbruik naar [mindergas.nl](https://mindergas.nl/) te sturen geactiveerd.
 
-Via **`FSexplorer -> DSMR Editor -> Settings`** kun je het jouw toegekende authorisatie token invoeren.
+Via **`FSmanager -> DSMR Editor -> Settings`** kun je het jouw toegekende authorisatie token invoeren.
 
 ![img](https://mrwheel.github.io/DSMRloggerWS/img/DSMR-USE_MINDERGAS_Settings.png)
 
@@ -14,5 +14,5 @@ Via **`FSexplorer -> DSMR Editor -> Settings`** kun je het jouw toegekende autho
 
 | \#define | Functie |
 | :--- | :--- |
-| USE\_MINDERGAS | Deze define zorgt ervoor dat de Firmware één maal per dag het gasverbruik uit de Slimme Meter naar **mindergas.nl** zal sturen. |
+| USE\_MINDERGAS | Deze define zorgt ervoor dat de Firmware één maal per dag het gasverbruik uit de Slimme Meter naar **mindergas.nl** zal sturen \(default\). |
 

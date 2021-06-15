@@ -22,9 +22,9 @@ Als de voorgaande stap goed is gegaan verschijnt na enige tijd het start scherm 
 
 De DSMRloggerAPI firmware heeft een mogelijkheid om bestanden van de DSMRloggerWS \(zgn. **`PRD-bestanden`**\) automatisch te converteren naar het door de DSMRloggerAPI gebruikt \(_RING_\) formaat.
 
-Nadat je de DSMRloggerAPI hebt geïnstalleerd en deze 'werkt' kun je met de **`FSmanager`** de drie bewaarde **`PRD-bestanden`** naar het SPIFFS uploaden.
+Nadat je de DSMRloggerAPI hebt geïnstalleerd en deze 'werkt' kun je met de **`FSmanager`** de drie bewaarde **`PRD-bestanden`** naar het bestand systeem uploaden.
 
-Upload vervolgens een bestand met de exacte naam **`!PRDconvert`** \(het eerste teken is een uitroep-teken\) naar het File Systeem \(de inhoud van dit bestand is niet belangrijk\). Start de DSMR-logger nu opnieuw op \(klik op de knop \[ReBoot\]\) en de RING bestanden zullen automatisch gevuld worden met de inhoud van de PRD bestanden.
+Upload vervolgens een bestand met de exacte naam **`!PRDconvert`** \(het eerste teken is een uitroep-teken\) naar het File Systeem \(de inhoud van dit bestand is niet belangrijk\). Start de DSMR-logger nu opnieuw op \(klik op de knop **`[ReBoot]`**\) en de RING bestanden zullen automatisch gevuld worden met de inhoud van de PRD bestanden.
 
 {% hint style="warning" %}
 Let op!   

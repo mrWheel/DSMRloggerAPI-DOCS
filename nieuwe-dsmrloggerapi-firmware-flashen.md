@@ -11,18 +11,14 @@ Hoe je de firmware moet upgraden van _DSMRlogger**WS**_ naar _DSMRlogger**API**_
 
 ### Pre compiled Binaries
 
-Op [github](https://github.com/mrWheel/DSMRloggerAPI) staan van de major releases, voor de meest voorkomende situaties, binaries van zowel de firmware als van het SPIFFS in .zip formaat. 
-
-{% hint style="success" %}
-Er komt een nieuwe versie van de DSMRloggerAPI firmware aan \(nu in Beta Test\) waarbij er nog maar één versie van de firmware voor álle \(mij bekende\) Slimme Meters nodig is.
-{% endhint %}
+Op [github](https://github.com/mrWheel/DSMRloggerAPI) staan van de major releases binaries van zowel de firmware als van het LittleFS bestand systeem. 
 
 ![](.gitbook/assets/githubmain.png)
 
 Klik op "[releases](https://github.com/mrWheel/DSMRloggerAPI/releases)" en download het meest recente of door jou gewenste `DSMRloggerAPI.ino.bin` bestand \(deze staan onder iedere release beschrijving bij "_Assets_"\).
 
 {% hint style="success" %}
-Bij een gewone firmware update is het meestal niet nodig ook het FileSystem opnieuw te downloaden en te flashen.
+Bij een gewone firmware update is het meestal niet nodig ook het bestand system opnieuw te downloaden en te flashen.
 {% endhint %}
 
 Onder iedere release beschrijving staan de bijbehorende "_Assets_".
@@ -52,10 +48,10 @@ Na enige tijd verschijnt het volgende scherm:
 
 ![](.gitbook/assets/updatesuccess.png)
 
-.. waarna, als de teller op nul staat het hoofdscherm van de DSMR-logger weer verschijnt.
+.. waarna, zodra de teller op nul staat, het hoofdscherm van de DSMR-logger weer verschijnt.
 
 {% hint style="warning" %}
-Alleen als in de beschrijving van een release staat dat ook het FileSystem opnieuw geflased moet worden moet u dit doen. In veel gevallen zal volstaan om eventueel een bepaald bestand naar de DSMR-logger te uploaden. Ook dit zal dan expliciet in de release beschrijving staan.
+Alleen als in de beschrijving van een release staat dat ook het bestand system opnieuw geflased moet worden moet u dit doen. In veel gevallen zal volstaan om eventueel een bepaald bestand naar de DSMR-logger te uploaden. Ook dit zal dan expliciet in de release beschrijving staan.
 {% endhint %}
 
 ### Bedraad flashen met het Espressif Flash Download tool

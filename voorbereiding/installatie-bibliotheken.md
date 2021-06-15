@@ -12,7 +12,7 @@ Als voorbeeld nemen we _TelnetStream_ van _Juraj Andrassy_. Zijn telnet implemen
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/DownloadTelnet.png)
 
-Om de bibliotheek te installeren klik je op de groene \[Clone or download\] knop en selecteer je \[Download ZIP\].
+Om de bibliotheek te installeren klik je op de groene `[Clone or download]` knop en selecteer je `[Download ZIP]`.
 
 Onthou waar je het zip-file bewaard!
 
@@ -26,7 +26,7 @@ Er verschijnt een selectie window waar je het zojuist ge-download-de bestand sel
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/IDE_Install_Lib_Zip.png)
 
-Klik op \[Choose\].
+Klik op `[Choose]`.
 
 De bibliotheek is nu geïnstalleerd en klaar om gebruikt te worden. De meeste bibliotheken komen met een aantal voorbeeld programma’s waarmee je kunt leren hoe je de bibliotheek kunt gebruiken.
 
@@ -38,5 +38,5 @@ Klik je nu op \[`TelnetStreamTest`\] dan wordt dit voorbeeld programma in de Ard
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/TelnetTestProg.png)
 
-Installeer op dezelfde manier de bibliotheken die voor de `DSMRloggerAPI`firmware nodig zijn \(zie het [volgende](../firmware/benodigde-bibliotheken.md) hoofdstuk\).
+Installeer op dezelfde manier de andere bibliotheken die voor de `DSMRloggerAPI`firmware nodig zijn \(zie het [volgende](../firmware/benodigde-bibliotheken.md) hoofdstuk\).
 

@@ -10,13 +10,17 @@ description: >-
 
 Je vindt hier de documentatie over de DSMRloggerAPI firmware voor versie 4 van de DSMR-logger.
 
+{% hint style="info" %}
+De DSMR-logger v4.5 die je via [opencircuit.nl](https://opencircuit.shop/Product/Smart-meter-reader-V4.5-Assembled-programmed) kunt kopen is voorzien van de hier beschreven firmware. Deze DSMR-logger is "Plug-And-Play" en alleen in bijzondere gevallen moet er iets aan de instellingen aangepast worden \(bijvoorbeeld als je een hele oude Slimme Meter hebt of als je een zgn. "Enkel Fase" Slimme meter hebt\).
+{% endhint %}
+
 {% hint style="warning" %}
 Let op!  
 Deze documentatie is "work in progress"!   
 Controleer daarom regelmatig op updates.
 {% endhint %}
 
-De DSMR-logger is een hardware en software systeem waarmee de Slimme Meter \(~~vanaf _DSMR_ versie 4.0~~\) kan worden uitgelezen. De uitgelezen data \(telegrammen\) worden in de DSMR-logger opgeslagen en kunnen met behulp van gestandaardiseerde restAPI call's worden opgevraagd.
+De DSMR-logger is een hardware en software systeem waarmee de Slimme Meter kan worden uitgelezen. De uitgelezen data \(telegrammen\) worden in de DSMR-logger opgeslagen en kunnen met behulp van gestandaardiseerde restAPI call's worden opgevraagd.
 
 {% hint style="success" %}
 Vanaf versie 3 kan de DSMRloggerAPI firmware overweg met vrijwel alle, mij bekende, Slimme Meters \(_DSMR 2+, DSMR3+, DSMR4+, DSMR5+_ en de _Belgische varianten_ hiervan\). Het probleem van sommige installaties met de voor geprogrammeerde aansluiting van de Gas Meter op MBus-1 is vanaf versie 3 via settingen aan te passen.

@@ -1,6 +1,6 @@
 # FSmanager
 
-Met de FSmanager is het mogelijk bestanden op het LittleFS \(Little File System\) te plaatsen of ze ervan te verwijderen. Ook kan de inhoud van bestanden die aanwezig zijn op het LittleFS worden getoond \(dit is niet mogelijk met .html bestanden omdat deze direct door de browser geïnterpreteerd -en dus uitgevoerd- worden\).
+Met de FSmanager is het mogelijk bestanden op het bestand systeem \(Little File System\) van de DSMR-logger te plaatsen of ze ervan te verwijderen. Ook kan de inhoud van bestanden die aanwezig zijn op het bestand systeem worden getoond \(dit is niet mogelijk met .html bestanden omdat deze direct door de browser geïnterpreteerd -en dus uitgevoerd- worden\).
 
 Daarnaast kent de FSmanager nog de volgende functies:
 
@@ -17,15 +17,15 @@ Er zijn verschillende manieren om de FSmanager te starten:
 
 ![](.gitbook/assets/screenshot-2021-06-09-at-14.03.47.png)
 
-### Het LittleFS formatteren
+### Het bestand systeem formatteren
 
-De FSmanager heeft de mogelijkheid om het LittleFS te formatteren. Deze functie is alleen nodig als het LittelFS problemen vertoont. Normaal gesproken is deze functie nooit nodig en daarom is de knop ook uitgeschakeld. Om de knop te activeren moet het bestand met de  naam **`!doNotFormat`**\(het eerste teken is een uitroep-teken\) ge-delete worden. De inhoud van het bestand is niet belangrijk. Zodra dit bestand afwezig is wordt de \[Format FileSYS\] knop geactiveerd.
+De FSmanager heeft de mogelijkheid om het bestand systeem te formatteren. Deze functie is alleen nodig als het bestand systeem problemen vertoont. Normaal gesproken is deze functie nooit nodig en daarom is de knop ook uitgeschakeld. Om de knop te activeren moet het bestand met de  naam **`!doNotFormat`**\(het eerste teken is een uitroep-teken\) ge-delete worden. De inhoud van het bestand is niet belangrijk. Zodra dit bestand afwezig is wordt de \[Format FileSYS\] knop geactiveerd.
 
 {% hint style="danger" %}
 Pas op!  
-Door het LittleFS te formatteren raak je álle bestanden die op het filesysteem staan kwijt!  
+Door het bestand systeem te formatteren raak je álle bestanden die op het bestand systeem staan kwijt!  
 Maak zo nodig eerst kopiëren van belangrijke bestanden.
 {% endhint %}
 
-Na iedere herstart zal de DSMRloggerAPI firmware controleren of het File Systeem correct geformatteerd is. In dat geval plaatst het automatisch een bestand met de naam `!doNotFormat` in de root directory.
+Na iedere herstart zal de DSMRloggerAPI firmware controleren of het bestand systeem correct geformatteerd is. In dat geval plaatst het automatisch een bestand met de naam `!doNotFormat` in de root directory.
 

@@ -24,7 +24,7 @@ Vervolgens moeten de `Boards` settings als volgt worden ingevuld:
 | :--- | :--- | :--- |
 |  | Board | "Generic ESP8266 Module" |
 |  | Upload Speed | "115200" |
-|  | CPU Frequency | "80MHz" \(160MHz\) |
+|  | CPU Frequency | "80MHz" \(of 160MHz\) |
 |  | Flash Frequency | "40MHz" |
 |  | Flash Mode | "DIO" of "DOUT \(compatible\)" |
 |  | Flash Size | "4MB \(**FS: 2MB** OAT:~1019KB\)" **&lt;&lt;== let op! 2MB** |
@@ -76,7 +76,7 @@ Alle instellingen voor de DSMRloggerAPI firmware blijven gelijk aan de bedrade m
 
 Vervolgens moet je niet op het   **`Compile & Upload`**-Icoon   ![](https://mrwheel.github.io/DSMRloggerWS/img/NotCompileAndUploadIcon.png)  
 
-klikken maar in het \[**`Sketch`**\] drop-down menu de keuze **`Upload Compiled Binary`** selecteren.
+klikken maar in het**`[Sketch]`**drop-down menu de keuze **`Upload Compiled Binary`** selecteren.
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/ExportCompiledBinary.png)
 
@@ -86,7 +86,7 @@ Als de firmware gecompileerd is klik je op de DSMR-logger pagina op het ![](../.
 
 ![](../.gitbook/assets/screenshot-2021-06-09-at-14.03.47.png)
 
-In de FSmanager klik je op de knop `[Update Firmware]`
+In de FSmanager klik je op de knop **`[Update Firmware]`**
 
 Er verschijnt nu een scherm waarin je een firmware bestand \(de naam eindigt op **`.bin`** met ergens in de naam ook **`.ino.`**\) kunt kiezen door op de bovenste knop **`[Choose File]`** te klikken.
 
@@ -96,7 +96,7 @@ Selecteer uit het **`popUp scherm`** dat nu verschijnt het binary file dat je wi
 
 ![](../.gitbook/assets/choose_ino_bin.png)
 
-.. klik op `[Choose]` \(of \[Open\]\) en daarna op de knop **`[Flash Firmware]`** 
+.. klik op **`[Choose]`** \(of **\[Open\]**\) en daarna op de knop **`[Flash Firmware]`** 
 
 {% hint style="danger" %}
 Let op!  

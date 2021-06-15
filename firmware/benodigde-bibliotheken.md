@@ -4,27 +4,9 @@
 
 Voor de **DSMRloggerAPI** firmware zijn de volgende bibliotheken nodig:
 
-#### ~~arduino-dsmr~~ <a id="dsmr"></a>
-
-~~Deze library is ontwikkeld door _Matthijs Kooijman_ en vormt het hart van de DSMR-logger. Je kunt de bibliotheek~~ [~~hier~~](%20https://github.com/matthijskooijman/arduino-dsmr) ~~downloaden.  
-De firmware is getest met `Version 0.1 - Commit f79c906 on 18 Sep 2018` maar nieuwere versies zullen waarschijnlijk ook werken.~~
-
-#### ~~arduino-dsmr-be \(_optioneel_\)~~
-
-~~**Let op!** Deze functionaliteit is slechts beperkt getest!~~
-
-~~Dit is een clone van de _**arduino-dsmr**_ bibliotheek van _Matthijs Kooijman_ die is aangepast voor de specifieke Belgische velden. Je kunt deze bibliotheek~~ [~~hier~~](https://github.com/mrWheel/arduino-dsmr-be) ~~downloaden.  
-Kijk ook~~ [~~hier~~](selectie-functies/define-use_belgium_protocol.md)~~.~~
-
-#### ~~arduino-dsmr30 \(_optioneel_\)~~ <a id="dsmr30"></a>
-
-~~**Let op!** Deze functionaliteit is slechts beperkt getest!~~
-
-~~Heb je een pré DSMR 4.0 Slimme Meter dan kun je deze toch aansluiten op de DSMR-logger maar moet je een aantal `#define`'s in het eerste tab-blad aanpassen én je moet~~ [~~deze~~](https://github.com/mrWheel/arduino-dsmr30) ~~library installeren. Kijk ook~~ [~~hier~~](selectie-functies/define-use_pre40_protocol.md)~~.~~
-
 #### dsmr2Lib
 
-Deze library is een combinatie van de drie voorgaande libraries \(arduino-dsmr, arduino-dsmr-be en arduino-dsmr30\). Je kunt de library [hier](https://github.com/mrWheel/dsmr2Lib) vinden.
+Deze library is een uitbreiding op de _arduino-dsmr_ van [Matthijs Kooijman](https://github.com/matthijskooijman/arduino-dsmr). Je kunt de dsmr2Lib library [hier](https://github.com/mrWheel/dsmr2Lib) vinden.
 
 #### TimeLib <a id="timelib"></a>
 

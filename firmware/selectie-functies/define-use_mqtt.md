@@ -100,5 +100,5 @@ of, als je een username/password hebt ingesteld met dit commando:
 
 | \#define | Functie |
 | :--- | :--- |
-| USE\_MQTT | Deze define zorgt ervoor dat de Firmware data uit de Slimme Meter naar een MQTT Broker stuurt. |
+| USE\_MQTT | Deze define zorgt ervoor dat de Firmware data uit de Slimme Meter naar een MQTT Broker stuurt \(default\). |
 

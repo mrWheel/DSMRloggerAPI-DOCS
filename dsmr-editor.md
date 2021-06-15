@@ -32,7 +32,7 @@ Sommige browser vertalen decimale punten in komma's! Dit is erg verwarrend want 
 
 #### Hostname
 
-De default Hostname is DSMR-API. De documentatie gaat ook uit van deze default hostname. Mocht je de hostname hier veranderen dan moet je bij het lezen van de documentatie overal "_**DSMR-API**_" vervangen door de hier ingevoerde hostname \(in bovenstaand plaatje is de hostname veranderd in "_**DSMR-108**_"\).
+De default Hostname is DSMR-API. De documentatie gaat ook uit van deze default hostname. Mocht je de hostname hier veranderen dan moet je bij het lezen van de documentatie overal "_**DSMR-API**_" vervangen door de hier ingevoerde hostname \(in bovenstaand plaatje is de hostname veranderd in "_**DSMR-TST3**_"\).
 
 #### Use Pré DSMR 40 \(0=No, 1=Yes\)
 
@@ -41,11 +41,11 @@ Deze instelling wordt pas actief nadat de DSMR-logger opnieuw is opgestart.
 
 #### MBus-1 \(2,3,4\) Type Meter
 
-Voer hier het ID in van de meter die op de betreffende MBus is aangesloten. Het ID van Gas meters is "003". Als in deze installatie de Gas meter is aangesloten op MBus-2 voer je voor deze rubriek "3" in. Bij MBus rubrieken waar niets op is aangesloten voer je een "0" in.
+Voer hier het `Type` in van de meter die op de betreffende MBus is aangesloten. Het `Type` van Gas meters is "003". Als in jouw installatie de Gas meter is aangesloten op MBus-ID2 voer je voor deze rubriek "3" in. Bij MBus-ID's waar niets op is aangesloten voer je een "0" in.
 
 #### SM Has Fase Info \(0=No, 1=Yes\)
 
-Voer een **1** in als de aangesloten Slimme Meter wél fase informatie afgeeft, voer anders een **0** \(nul\) in.
+Voer een **1** in als de aangesloten Slimme Meter wél fase informatie afgeeft, voer anders een **0** \(nul\) in. Of jouw Slimme Meter Fase Informatie af geeft kun je zien door naar een telegram te kijken. Geeft jouw Slimme Meter Fase Informatie dan zie je rubrieken met een naam waar `_l1`_,_ `_l2` en `_l3` achter staat.
 
 #### Telegram Lees Interval
 
@@ -53,10 +53,10 @@ Default interval is 10. Dit betekent dat er iedere tien seconden een interval wo
 
 #### Te gebruiken index.html pagina
 
-De standaard index pagina is "_DSMRindex.html_". Mocht je zelf een GUI schrijven dan kun je hier de naam van de index pagina van jouw GUI invullen. Standaard staan er ook een **DSMRindexEDGE.html** en een **ADJindex.html** pagina op SPIFFS. De eerste variant is gelijk aan de _DSMRindex.html_ pagina maar hij haalt de _javascript_ en _css_ bestanden uit de github repository zodat aanpassingen \(uitbreidingen of verbeteringen\) automatisch door de DSMR-logger gebruikt worden. Het **ADJindex.html** bestand is een bootstrap naar de door [Arjen de Jong](https://github.com/arjendejong12/DSMRloggerGUI) gemaakte GUI.
+De standaard index pagina is "_DSMRindex.html_". Mocht je zelf een GUI schrijven dan kun je hier de naam van de index pagina van jouw GUI invullen. Standaard staat er ook een **DSMRindexEDGE.html** pagina op het bestand systeem. Deze is gelijk aan de _DSMRindex.html_ pagina maar hij haalt de _javascript_ en _css_ bestanden uit de github repository zodat aanpassingen \(uitbreidingen of verbeteringen\) automatisch door de DSMR-logger gebruikt worden. Het **ADJindex.html** bestand is een bootstrap naar de door [Arjen de Jong](https://github.com/arjendejong12/DSMRloggerGUI) gemaakte GUI, het **HJMindex.html** bestand is een bootstrap naar de door _Erik_ ontwikkelde GUI. Je kunt deze GUI's eenvoudig uitproberen door in de FSmanager op deze bestanden te klikken. 
 
 {% hint style="warning" %}
-Een nieuw ingevoerde index pagina wordt pas actief na het opnieuw opstarten van de DSMR-logger \(\[ReBoot\] knop in de FSexplorer\).
+Een nieuw ingevoerde index pagina wordt pas actief na het opnieuw opstarten van de DSMR-logger \(\[ReBoot\] knop in de FSmanager\).
 {% endhint %}
 
 #### OLED type

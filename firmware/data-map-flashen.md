@@ -20,7 +20,6 @@ Koppel de DSMR-logger los van de Slimme Meter vóórdat je de DSMR-logger op de 
 
 De _DSMR-logger v4_ staat nu in "_Flash-mode_" en wacht \(geduldig\) tot de inhoud van de **`data`** map wordt opgestuurd.
 
-* ~~Ga in de Arduino IDE naar  Tools -&gt; ESP8266 Sketch Data Upload~~ 
 * Ga in de Arduino IDE naar ~~**`Tools` -&gt; `ESP8266 LittleFS Data Upload`**~~
 
 {% hint style="warning" %}
@@ -28,13 +27,13 @@ Let op!
 Het uploaden van de data map mislukt als de Serial Monitor ![](../.gitbook/assets/serialmonitor_icon.png) open staat!
 {% endhint %}
 
-~~SPIFFS~~ LittleFS wordt nu leeg gemaakt en alle bestanden in de **`data`** map worden ~~naar het SPIFFS~~ als een LittleFS overgezet.
+Het LittleFS \(bestand systeem\) wordt nu leeg gemaakt en alle bestanden in de **`data`** map worden als een LittleFS overgezet.
 
-Hierna zal de DSMR-logger normaal opstarten, maar met de nieuw ~~SPIFFS~~ LittleFS inhoud.
+Hierna zal de DSMR-logger normaal opstarten, maar met de nieuw LittleFS inhoud.
 
 {% hint style="warning" %}
 Let op!  
-Hou er rekening mee dat eventuele data-bestanden die al op ~~SPIFFS~~ het LittleFS stonden nu weg zijn! Als je ze niet kwijt wil moet je er eerst een kopie van maken op je computer en deze, na het flashen van ~~SPIFFS~~ het LittleFS weer terug zetten \(dat kan met de DSMR-logger FSmanager ![](https://mrwheel.github.io/DSMRloggerWS/img/FSexplorer.png)\)!
+Hou er rekening mee dat eventuele data-bestanden die al op het LittleFS stonden nu weg zijn! Als je ze niet kwijt wil moet je er eerst een kopie van maken op je computer en deze, na het flashen van het LittleFS weer terug zetten \(dat kan met de DSMR-logger FSmanager ![](../.gitbook/assets/fsmanagericoon.png)\)!
 {% endhint %}
 
 
@@ -50,13 +49,13 @@ Start vervolgens het `ESP8266 LittleFS Data Upload`-tool
 ![](../.gitbook/assets/screenshot-2021-06-10-at-11.09.29.png)
 
 Omdat je een **`Serial Port`** hebt geselecteerd waar niets op is aangesloten zal deze opdracht met een foutmelding eindigen.  
-Ondertussen is er wél een **`.spiffs.bin`** bestand in het **`build-path`** neergezet.
+Ondertussen is er wél een **`.mklittlefs.bin`** bestand in het **`build-path`** neergezet.
 
-![](../.gitbook/assets/datauploadspiffs.png)
+![](../.gitbook/assets/upload_littlefs.png)
 
 {% hint style="danger" %}
 Let op!  
-Hou er rekening mee dat eventuele data-bestanden die al op het File Systeem stonden nu weg zijn! Als je ze niet kwijt wil moet je er eerst een kopie van maken op je computer en deze, na het flashen van het LittleFS weer terug zetten \(dat kan met de DSMR-logger FSmanager ![](../.gitbook/assets/fsmanagericoon.png)\)!
+Hou er rekening mee dat eventuele data-bestanden die al op het bestand systeem stonden nu weg zijn! Als je ze niet kwijt wil moet je er eerst een kopie van maken op je computer en deze, na het flashen van het LittleFS weer terug zetten \(dat kan met de DSMR-logger FSmanager ![](../.gitbook/assets/fsmanagericoon.png)\)!
 {% endhint %}
 
 Klik nu op de DSMR-logger pagina op het ![](../.gitbook/assets/fsmanagericoon.png) icoontje.
@@ -73,7 +72,7 @@ Selecteer uit het `popUp scherm` dat nu verschijnt het binary file dat je wilt u
 
 ![](../.gitbook/assets/screenshot-2021-06-10-at-10.16.00.png)
 
-.. klik op `[Open]` en daarna op de knop **`[Flash FileSystem]`**
+.. klik op **`[Open]`** en daarna op de knop **`[Flash FileSystem]`**
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/DSMR-FlashWait4Reboot.png)
 

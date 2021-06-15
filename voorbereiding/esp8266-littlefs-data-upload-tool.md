@@ -2,9 +2,9 @@
 
 ### Installatie LittleFS Data Upload Tool <a id="installatie-data-upload-tool"></a>
 
-Eén van de mooie eigenschappen van de ESP8266 is dat er flash geheugen in zit. Flash geheugen is geheugen dat zijn inhoud ook zonder spanning behoud. Vergelijk het met een SD-kaart. Het flash geheugen is, afhankelijk van het bordje, 512kB tot 16MB\(!\) groot. Een deel van dit flash geheugen wordt gebruikt om jouw programma in op te slaan. Wat er over blijft kan als bestand-systeem worden ingericht \(het zgn. _LittleFS_\).
+Eén van de mooie eigenschappen van de ESP8266 is dat er flash geheugen in zit. Flash geheugen is geheugen dat zijn inhoud ook zonder spanning behoud. Vergelijk het met een SD-kaart. Het flash geheugen is, afhankelijk van het bordje, 512kB tot 16MB\(!\) groot. Een deel van dit flash geheugen wordt gebruikt om jouw programma in op te slaan. Wat er over blijft kan als bestand systeem worden ingericht \(het zgn. _LittleFS_\).
 
-Je kunt in je programma dit bestand-systeem niet alleen gebruiken om \(bijvoorbeeld meet-\) gegevens maar ook om de inhoud van een web-pagina \(`index.html`\) of een configuratie-bestand in op te slaan.
+Je kunt in je programma dit bestand systeem niet alleen gebruiken om \(bijvoorbeeld meet-\) gegevens maar ook om de inhoud van een web-pagina \(`index.html`\) of een configuratie-bestand in op te slaan.
 
 Om het LittleFS voor dit soort bestanden te kunnen gebruiken moet je een `plug-in` in je Arduino Projecten map installeren.
 
@@ -12,7 +12,7 @@ De plug-in haal je [hier](https://github.com/earlephilhower/arduino-esp8266littl
 
 ![](../.gitbook/assets/screenshot-2021-06-10-at-11.06.51.png)
 
-Download vervolgens het **`ESP8266FS-0.5.0.zip`** bestand door er op te klikken.
+Download vervolgens het **`ESP8266LittleFS-x.y.z.zip`** bestand door er op te klikken.
 
 ![](../.gitbook/assets/screenshot-2021-06-10-at-11.08.24.png)
 
@@ -30,17 +30,17 @@ Op de menu-balk zie je nu onder \[**`Tools`**\] een nieuwe optie: **`ESP8266 Lit
 
 ![](../.gitbook/assets/screenshot-2021-06-10-at-11.09.29.png)
 
-Als er onder de map van je Sketch óók een map **`data`** staat, dan kun je de bestanden die in deze **`data`-map** staan met het **`ESP8266 LittleFS Data Upload`** tool naar het File Systeem van de ESP8266 flashen.
+Als er onder de map van je Sketch óók een map **`data`** staat, dan kun je de bestanden die in deze **`data`-map** staan met het **`ESP8266 LittleFS Data Upload`** tool naar het bestand systeem van de ESP8266 flashen.
 
 De bestands-tree van de DSMRloggerAPI firmware data-map ziet er zo uit:  
 
 ![](../.gitbook/assets/datamap.png)
 
-Het `ESP8266 LittleFS Data Upload` tool zal alle bestanden die in de `data`-map zitten naar het File Systeem van de aangesloten ESP8266 uploaden.
+Het `ESP8266 LittleFS Data Upload` tool zal alle bestanden die in de `data`-map zitten naar het bestand systeem van de aangesloten ESP8266 uploaden.
 
 Ga naar: \[**`tools`**\] -&gt; \[**`ESP8266 LittleFS Data Upload`**\]
 
-Randvoorwaarde is natuurlijk dat het LittleFS groot genoeg is! In de selectie van je board moet je, behalve het juiste type board ook aangeven hoeveel ruimte van je Flash geheugen je wilt gebruiken voor het bestand-systeem \(vóórdat je je programma naar de ESP8266 upload!\).
+Randvoorwaarde is natuurlijk dat het bestand systeem groot genoeg is! In de selectie van je board moet je, behalve het juiste type board ook aangeven hoeveel ruimte van je Flash geheugen je wilt gebruiken voor het bestand-systeem \(vóórdat je je programma naar de ESP8266 upload!\).
 
 ![](../.gitbook/assets/flash_spiffs_size.png)
 
