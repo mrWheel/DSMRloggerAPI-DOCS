@@ -12,6 +12,8 @@ Je vindt hier de documentatie over de DSMRloggerAPI firmware voor versie 4 van d
 
 {% hint style="info" %}
 De DSMR-logger v4.5 die je via [opencircuit.nl](https://opencircuit.shop/Product/Smart-meter-reader-V4.5-Assembled-programmed) kunt kopen is voorzien van de hier beschreven firmware. Deze DSMR-logger is "Plug-And-Play" en alleen in bijzondere gevallen moet er iets aan de instellingen aangepast worden \(bijvoorbeeld als je een hele oude Slimme Meter hebt of als je een zgn. "Enkel Fase" Slimme meter hebt\).
+
+Deze documentatie is voor de gebruikers en makers die meer willen dan alleen de DSMR-logger aansluiten op hun Slimme meter. Voor de meeste gebruikers zullen voldoende hebben aan alleen [dit](dsmr-editor.md#settings-aanpassen) hoofdstuk.
 {% endhint %}
 
 {% hint style="warning" %}
