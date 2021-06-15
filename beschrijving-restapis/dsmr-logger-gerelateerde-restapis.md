@@ -79,8 +79,11 @@ Succes
 
 ```
 {"devtime":[
-  {"name": "time", "value": "2021-03-09 12:15:01"},
-  {"name": "epoch", "value": 1615292111}
+  {"name": "timestamp", "value": "201027085021S"},
+  {"name": "time", "value": "2020-10-27 08:50:21"},
+  {"name": "epoch", "value": 1603788623},
+  {"name": "uptime", "value": "0(d)-01:22(H:m)"},
+  {"name": "uptime_secs", "value": 4955, "unit": "sec"}
 ]}
 ```
 {% endapi-method-response-example %}
@@ -109,23 +112,31 @@ Succes
 ```
 {"settings":[
   {"name": "hostname", "value":"DSMR-API", "type": "s", "maxlen": 29},
-  {"name": "ed_tariff1", "value": 0.15123, "type": "f", "min": 0, "max": 10},
-  {"name": "ed_tariff2", "value": 0.17092, "type": "f", "min": 0, "max": 10},
-  {"name": "er_tariff1", "value": 0.13087, "type": "f", "min": 0, "max": 10},
-  {"name": "er_tariff2", "value": 0.14567, "type": "f", "min": 0, "max": 10},
-  {"name": "gd_tariff", "value": 0.23456, "type": "f", "min": 0, "max": 10},
-  {"name": "electr_netw_costs", "value": 24.00, "type": "f", "min": 0, "max": 100},
-  {"name": "gas_netw_costs", "value": 12.00, "type": "f", "min": 0, "max": 100},
-  {"name": "tlgrm_interval", "value": 10, "type": "i", "min": 1, "max": 60},
+  {"name": "pre_dsmr40", "value": 0, "type": "i", "min": 0, "max": 1},
+  {"name": "ed_tariff1", "value": 0.50000, "type": "f", "min": 0, "max": 10},
+  {"name": "ed_tariff2", "value": 0.50000, "type": "f", "min": 0, "max": 10},
+  {"name": "er_tariff1", "value": 0.50000, "type": "f", "min": 0, "max": 10},
+  {"name": "er_tariff2", "value": 0.50000, "type": "f", "min": 0, "max": 10},
+  {"name": "gd_tariff", "value": 0.50000, "type": "f", "min": 0, "max": 10},
+  {"name": "electr_netw_costs", "value": 15.14, "type": "f", "min": 0, "max": 100},
+  {"name": "gas_netw_costs", "value": 11.10, "type": "f", "min": 0, "max": 100},
+  {"name": "mbus1_type", "value": 0, "type": "i", "min": 0, "max": 200},
+  {"name": "mbus2_type", "value": 3, "type": "i", "min": 0, "max": 200},
+  {"name": "mbus3_type", "value": 5, "type": "i", "min": 0, "max": 200},
+  {"name": "mbus4_type", "value": 0, "type": "i", "min": 0, "max": 200},
+  {"name": "sm_has_fase_info", "value": 1, "type": "i", "min": 0, "max": 1},
+  {"name": "tlgrm_interval", "value": 5, "type": "i", "min": 2, "max": 60},
+  {"name": "oled_type", "value": 1, "type": "i", "min": 0, "max": 2},
   {"name": "oled_screen_time", "value": 10, "type": "i", "min": 1, "max": 300},
+  {"name": "oled_flip_screen", "value": 0, "type": "i", "min": 0, "max": 1},
   {"name": "index_page", "value":"DSMRindex.html", "type": "s", "maxlen": 49},
-  {"name": "mqtt_broker", "value":"hassio.local", "type": "s", "maxlen": 101},
+  {"name": "mqtt_broker", "value":"192.168.21.244", "type": "s", "maxlen": 100},
   {"name": "mqtt_broker_port", "value": 1883, "type": "i", "min": 1, "max": 9999},
-  {"name": "mqtt_user", "value":"user", "type": "s", "maxlen": 40},
-  {"name": "mqtt_passwd", "value":"password", "type": "s", "maxlen": 30},
-  {"name": "mqtt_topTopic", "value":"DSMR-API", "type": "s", "maxlen": 21},
+  {"name": "mqtt_user", "value":"", "type": "s", "maxlen": 39},
+  {"name": "mqtt_passwd", "value":"", "type": "s", "maxlen": 39},
+  {"name": "mqtt_toptopic", "value":"DSMR-API", "type": "s", "maxlen": 20},
   {"name": "mqtt_interval", "value": 60, "type": "i", "min": 0, "max": 600},
-  {"name": "mindergastoken", "value":"Mg6543token", "type": "s", "maxlen": 21}
+  {"name": "mindergastoken", "value":"Ay76AFwQ", "type": "s", "maxlen": 20}
 ]}
 ```
 {% endapi-method-response-example %}

@@ -1,6 +1,6 @@
 # USE\_UPDATE\_SERVER
 
-Met deze optie wordt het mogelijk om nieuwe Firmware naar de DSMR-logger te flashen door in de FSmanager op de knop `[Update Firmware]` te klikken
+Met deze optie wordt het mogelijk om nieuwe Firmware naar de DSMR-logger te flashen door in de FSmanager op de knop **`[Update Firmware]`** te klikken.
 
 ![](../../.gitbook/assets/screenshot-2021-06-09-at-14.03.47.png)
 
@@ -8,7 +8,7 @@ en vervolgens in de Flash Utility ..
 
 ![](../../.gitbook/assets/screenshot-2021-06-10-at-10.13.14.png)
 
-.. op `[Choose file]` te klikken en daarna op `[Flash Firmware]`
+.. op **`[Choose file]`** te klikken en daarna op **`[Flash Firmware]`**
 
 {% hint style="info" %}
 Let op!   

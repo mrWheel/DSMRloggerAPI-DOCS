@@ -2,7 +2,7 @@
 
 Met deze optie wordt de functionaliteit om data naar een MQTT Broker te sturen geactiveerd.
 
-Via **`FSexplorer -> Edit instellingen -> Settings`** kun je gegevens over de te gebruiken MQTT Broker invullen:
+Via **`FSexplorer`** -&gt; **`Edit instellingen`** -&gt; **`Settings`** kun je gegevens over de te gebruiken MQTT Broker invullen:
 
 ![](../../.gitbook/assets/dsmrloggerapi_mqtt.png)
 

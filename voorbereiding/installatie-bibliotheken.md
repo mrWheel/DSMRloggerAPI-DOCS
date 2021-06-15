@@ -12,13 +12,13 @@ Als voorbeeld nemen we _TelnetStream_ van _Juraj Andrassy_. Zijn telnet implemen
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/DownloadTelnet.png)
 
-Om de bibliotheek te installeren klik je op de groene `[Clone or download]` knop en selecteer je `[Download ZIP]`.
+Om de bibliotheek te installeren klik je op de groene **`[Clone or download]`** knop en selecteer je **`[Download ZIP]`**.
 
 Onthou waar je het zip-file bewaard!
 
 Ga nu naar de Arduino IDE en selecteer:
 
-\[`Sketch`\] =&gt; \[`Include Library`\] =&gt; \[`Add .ZIP Library`\]
+**`[Sketch]`**=&gt;**`[Include Library]`** =&gt;**`[Add .ZIP Library]`**
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/IDE_Add_Lib_Zip.png)
 
@@ -26,7 +26,7 @@ Er verschijnt een selectie window waar je het zojuist ge-download-de bestand sel
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/IDE_Install_Lib_Zip.png)
 
-Klik op `[Choose]`.
+Klik op **`[Choose]`**.
 
 De bibliotheek is nu geïnstalleerd en klaar om gebruikt te worden. De meeste bibliotheken komen met een aantal voorbeeld programma’s waarmee je kunt leren hoe je de bibliotheek kunt gebruiken.
 
@@ -34,7 +34,7 @@ _Juraj Andrassy_ is erg summier met zijn uitleg maar gelukkig is er een map met 
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/TelnetExample.png) \(sorry, het plaatje is een beetje verknipt\)
 
-Klik je nu op \[`TelnetStreamTest`\] dan wordt dit voorbeeld programma in de Arduino IDE geladen.
+Klik je nu op**`[TelnetStreamTest]`**dan wordt dit voorbeeld programma in de Arduino IDE geladen.
 
 ![](https://mrwheel.github.io/DSMRloggerWS/img/TelnetTestProg.png)
 

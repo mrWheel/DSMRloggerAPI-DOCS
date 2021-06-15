@@ -4,11 +4,11 @@ Met de FSmanager is het mogelijk bestanden op het bestand systeem \(Little File 
 
 Daarnaast kent de FSmanager nog de volgende functies:
 
-* Starten van de Update Server    `[Update Firmware]`
-* Rebooten van de DSMR-logger`[Reboot]`
-* Formatteren van het LittleFS   `[Format FileSYS]`
-* Soms blijft het scherm leeg. Klik dan op de knop`[List File System]`
-* Met de knop`[Exit FSmanager]` keer je terug naar het hoofdscherm.
+* Starten van de Update Server    **`[Update Firmware]`**
+* Rebooten van de DSMR-logger**`[Reboot]`**
+* Formatteren van het LittleFS   **`[Format FileSYS]`**
+* Soms blijft het scherm leeg. Klik dan op de knop**`[List File System]`**
+* Met de knop**`[Exit FSmanager]`** keer je terug naar het hoofdscherm.
 
 Er zijn verschillende manieren om de FSmanager te starten:
 
@@ -19,7 +19,7 @@ Er zijn verschillende manieren om de FSmanager te starten:
 
 ### Het bestand systeem formatteren
 
-De FSmanager heeft de mogelijkheid om het bestand systeem te formatteren. Deze functie is alleen nodig als het bestand systeem problemen vertoont. Normaal gesproken is deze functie nooit nodig en daarom is de knop ook uitgeschakeld. Om de knop te activeren moet het bestand met de  naam **`!doNotFormat`**\(het eerste teken is een uitroep-teken\) ge-delete worden. De inhoud van het bestand is niet belangrijk. Zodra dit bestand afwezig is wordt de \[Format FileSYS\] knop geactiveerd.
+De FSmanager heeft de mogelijkheid om het bestand systeem te formatteren. Deze functie is alleen nodig als het bestand systeem problemen vertoont. Normaal gesproken is deze functie nooit nodig en daarom is de knop ook uitgeschakeld. Om de knop te activeren moet het bestand met de  naam **`!doNotFormat`**\(het eerste teken is een uitroep-teken\) ge-delete worden. De inhoud van het bestand is niet belangrijk. Zodra dit bestand afwezig is wordt de **`[Format FileSYS]`** knop geactiveerd.
 
 {% hint style="danger" %}
 Pas op!  

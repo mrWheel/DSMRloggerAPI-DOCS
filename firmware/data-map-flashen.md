@@ -44,7 +44,7 @@ Bij het _**Over The Air**_ uploaden van de bestanden uit de **`data`**-map kan d
 
 Alle **`Board`** gegevens blijven gelijk alleen selecteer je een **`Serial Port`** die **nergens op is aangesloten**!
 
-Start vervolgens het `ESP8266 LittleFS Data Upload`-tool
+Start vervolgens het **`ESP8266 LittleFS Data Upload`**-tool
 
 ![](../.gitbook/assets/screenshot-2021-06-10-at-11.09.29.png)
 

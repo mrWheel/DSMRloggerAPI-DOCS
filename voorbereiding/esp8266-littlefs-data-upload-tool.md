@@ -6,7 +6,7 @@ Eén van de mooie eigenschappen van de ESP8266 is dat er flash geheugen in zit. 
 
 Je kunt in je programma dit bestand systeem niet alleen gebruiken om \(bijvoorbeeld meet-\) gegevens maar ook om de inhoud van een web-pagina \(`index.html`\) of een configuratie-bestand in op te slaan.
 
-Om het LittleFS voor dit soort bestanden te kunnen gebruiken moet je een `plug-in` in je Arduino Projecten map installeren.
+Om het LittleFS voor dit soort bestanden te kunnen gebruiken moet je een _**`plug-in`**_ in je Arduino Projecten map installeren.
 
 De plug-in haal je [hier](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin/releases) vandaan. Ga naar deze [github](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin/releases) pagina en download het meest recente .zip bestand ..
 
@@ -26,7 +26,7 @@ Ga nu naar je `Sketchbook Location` map en maak daarin een nieuwe map `tools` aa
 
 Start de Arduino IDE opnieuw op.
 
-Op de menu-balk zie je nu onder \[**`Tools`**\] een nieuwe optie: **`ESP8266 LittleFS Data Upload`**.
+Op de menu-balk zie je nu onder**`[Tools]`**een nieuwe optie: **`ESP8266 LittleFS Data Upload`**.
 
 ![](../.gitbook/assets/screenshot-2021-06-10-at-11.09.29.png)
 

@@ -6,5 +6,5 @@ De omvang van de DSMTloggerAPI firmware is te groot geworden voor een ESP-01 bor
 
 ![](.gitbook/assets/screenshot-2021-06-15-at-14.03.51.png)
 
-Het gebruik van de DSMR-logger v1, [v2 en v3](https://opencircuit.nl/Product/Slimme-meter-uitlezer-bouwpakket-met-ESP-01) wordt niet meer ondersteunt.
+Het gebruik van de DSMR-logger [v2 en v3](https://opencircuit.nl/Product/Slimme-meter-uitlezer-bouwpakket-met-ESP-01) wordt niet meer ondersteunt.
 

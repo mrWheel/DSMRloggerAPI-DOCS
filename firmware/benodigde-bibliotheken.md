@@ -6,7 +6,7 @@ Voor de **DSMRloggerAPI** firmware zijn de volgende bibliotheken nodig:
 
 #### dsmr2Lib
 
-Deze library is een uitbreiding op de _arduino-dsmr_ van [Matthijs Kooijman](https://github.com/matthijskooijman/arduino-dsmr). Je kunt de dsmr2Lib library [hier](https://github.com/mrWheel/dsmr2Lib) vinden.
+Deze library is een uitbreiding op de _arduino-dsmr_ van _Matthijs Kooijman_. Je kunt de dsmr2Lib library [hier](https://github.com/mrWheel/dsmr2Lib) vinden.
 
 #### TimeLib <a id="timelib"></a>
 
@@ -15,12 +15,12 @@ Deze is door _Paul Stoffregen_ ontwikkeld. Je kunt hem [hier](https://github.com
 #### WiFiManager <a id="wifimanager"></a>
 
 Je kunt de, door _Tzapu_ ontwikkelde, bibliotheek [hier](https://github.com/tzapu/WiFiManager) downloaden.  
-De DSMR-logger firmware is getest met `version 0.14.0` van deze bibliotheek maar nieuwere versies zullen waarschijnlijk ook werken.
+De DSMR-logger firmware is getest met **`version 0.14.0`** van deze bibliotheek maar nieuwere versies zullen waarschijnlijk ook werken.
 
 #### TelnetStream <a id="telnetstream"></a>
 
 Deze bibliotheek is door _Juraj Andrassy_ ontwikkeld. Je kunt deze bibliotheek [hier](https://github.com/jandrassy/TelnetStream) downloaden.  
-De firmware is getest met `version 0.0.1` maar nieuwere versies zullen waarschijnlijk ook werken.
+De firmware is getest met **`version 0.0.2`** maar nieuwere versies zullen waarschijnlijk ook werken.
 
 {% hint style="warning" %}
 **Let op:**   

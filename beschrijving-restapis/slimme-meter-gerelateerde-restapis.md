@@ -20,12 +20,14 @@ Succes
 
 ```
 {"info":[
-  {"name": "identification", "value": "XMX5LGBBLB123456789"},
+  {"name": "identification", "value": "XMX5LABCDB2410065887"},
   {"name": "p1_version", "value": "50"},
-  {"name": "equipment_id", "value": "1234563336303000000000000000000040"},
-  {"name": "electricity_tariff", "value": "0002"},
-  {"name": "gas_device_type", "value": 3},
-  {"name": "gas_equipment_id", "value": "4730303339303031312345603530323136"}
+  {"name": "equipment_id", "value": "4530303336303000000000000000000040"},
+  {"name": "electricity_tariff", "value": "0001"},
+  {"name": "mbus1_device_type", "value": 3},
+  {"name": "mbus1_equipment_id_tc", "value": "4730303339303031363532303530323136"},
+  {"name": "mbus4_device_type", "value": 5},
+  {"name": "mbus4_equipment_id_tc", "value": "4730303339303031344444444444444444"}
 ]}
 ```
 {% endapi-method-response-example %}

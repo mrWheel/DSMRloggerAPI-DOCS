@@ -96,7 +96,7 @@ Selecteer uit het **`popUp scherm`** dat nu verschijnt het binary file dat je wi
 
 ![](../.gitbook/assets/choose_ino_bin.png)
 
-.. klik op **`[Choose]`** \(of **\[Open\]**\) en daarna op de knop **`[Flash Firmware]`** 
+.. klik op **`[Choose]`** \(of **`[Open]`**\) en daarna op de knop **`[Flash Firmware]`** 
 
 {% hint style="danger" %}
 Let op!  

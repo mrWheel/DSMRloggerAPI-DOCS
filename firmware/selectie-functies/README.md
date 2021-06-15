@@ -4,7 +4,7 @@
 
 Tijdens het compileren van de firmware kun je bepaalde functionaliteit in- en uit-schakelen door de \#defines wél of níet door twee slashes \("//"\) vooraf te laten gaan.
 
-In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is voor de verschillende versies van de DSMR-logger.
+In onderstaande tabel kun je zien of een bepaalde functionaliteit beschikbaar is voor de  DSMR-logger.
 
 <table>
   <thead>

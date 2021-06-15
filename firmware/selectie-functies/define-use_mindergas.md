@@ -2,7 +2,7 @@
 
 Met deze optie wordt de functionaliteit om gasverbruik naar [mindergas.nl](https://mindergas.nl/) te sturen geactiveerd.
 
-Via **`FSmanager -> DSMR Editor -> Settings`** kun je het jouw toegekende authorisatie token invoeren.
+Via **`FSmanager`** -&gt; **`DSMR Editor`** -&gt; **`Settings`** kun je het jouw toegekende authorisatie token invoeren.
 
 ![img](https://mrwheel.github.io/DSMRloggerWS/img/DSMR-USE_MINDERGAS_Settings.png)
 

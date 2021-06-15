@@ -31,19 +31,19 @@ Vanaf versie 3 van de firmware zijn er geen compiler opties meer die de firmware
 
 ### OTA flashen met de Update Server
 
-Ga nu op de DSMR-logger naar de FSmanager \(door op het icoon ![](.gitbook/assets/fsmanagericoon.png) te klikken\) en klik vervolgens op de knop `[Update Firmware]`.
+Ga nu op de DSMR-logger naar de FSmanager \(door op het icoon ![](.gitbook/assets/fsmanagericoon.png) te klikken\) en klik vervolgens op de knop **`[Update Firmware]`**.
 
 ![](.gitbook/assets/screenshot-2021-06-09-at-14.03.47.png)
 
-Klik nu op de bovenste `[Choose File]` knop 
+Klik nu op de bovenste **`[Choose File]`** knop 
 
 ![](.gitbook/assets/chooseino.png)
 
-Selecteer in het popup-window het zojuist gedownloade `DSMRloggerAPI.ino.bin` file:
+Selecteer in het popup-window het zojuist gedownloade **`DSMRloggerAPI.ino.bin`** file:
 
 ![](.gitbook/assets/updateselectfw.png)
 
-Klik op `[Open]` of `[Select]` en klik vervolgens op de knop `[Flash Firmware]`.   
+Klik op **`[Open]`** of **`[Select]`** en klik vervolgens op de knop **`[Flash Firmware]`**.   
 Na enige tijd verschijnt het volgende scherm:
 
 ![](.gitbook/assets/updatesuccess.png)
@@ -66,11 +66,11 @@ Pak het .zip file uit \(unzip\) en start het door op het mapje te klikken:
 
 ![](.gitbook/assets/espressif_tool1.png)
 
-Klik nu op "flash\_download\_tools.exe" en selecteer \[esp8266 DownloadTool\] in het volgende scherm:
+Klik nu op "flash\_download\_tools.exe" en selecteer **`[esp8266 DownloadTool]`** in het volgende scherm:
 
 ![](.gitbook/assets/espressif_tool2.png)
 
 ![](.gitbook/assets/espressif_tool3.png)
 
-Selecteer de twee bin bestanden. Het **`DSMRloggerAPI.ino.bin`** bestand moet op adres **0x0** starten, het **`DSMRloggerAPI.mklittlefs.bin`** op adres **0x200000**. Selecteer de COM poort waar de DSMR-logger op is aangesloten, _zet de DSMR-logger in flash mode_ en klik op `[START]`. Na enige tijd krijg je de melding dat alles goed is gegaan.
+Selecteer de twee bin bestanden. Het **`DSMRloggerAPI.ino.bin`** bestand moet op adres **0x0** starten, het **`DSMRloggerAPI.mklittlefs.bin`** op adres **0x200000**. Selecteer de COM poort waar de DSMR-logger op is aangesloten, _zet de DSMR-logger in flash mode_ en klik op **`[START]`**. Na enige tijd krijg je de melding dat alles goed is gegaan.
 
