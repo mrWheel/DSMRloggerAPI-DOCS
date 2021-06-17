@@ -34,8 +34,8 @@ Vanaf versie 3 kan de DSMRloggerAPI firmware overweg met vrijwel alle, mij beken
 * In [deze post](https://willem.aandewiel.nl/index.php/2019/04/09/dsmr-logger-v4-slimme-meter-uitlezer/) kun je de ontwikkeling van de hardware en firmware vinden.
 * [Hier](https://willem.aandewiel.nl/index.php/2020/02/28/restapis-zijn-hip-nieuwe-firmware-voor-de-dsmr-logger/) staat een introductie van de DSMRloggerAPI firmware
 * Veel informatie over de hardware en het gebruik wordt [hier](https://mrwheel.github.io/DSMRloggerWS/hardware_V4/) beschreven.
-* De DSMRloggerAPI firmware kun je op [github](https://github.com/mrWheel/DSMRloggerAPI) vinden.
-
+* De DSMRloggerAPI firmware kun je op [github](https://github.com/mrWheel/DSMRloggerAPI) vinden
+* 
 ### Begrippen
 
 In dit document worden de volgende begrippen gebruikt:
