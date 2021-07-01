@@ -8,7 +8,7 @@ Het upgraden vanaf de _DSMRloggerAPI **v2**_ firmware naar de _DSMRlogger**API**
 
 ![](.gitbook/assets/fsexplorerfwupdate.png)
 
-* Download de laatste \(nieuwste\) versie **`DSMRloggerAPI.ino.bin`** en **`DSMRloggerAPI.mklittlefs.bin`** files van [github](https://github.com/mrWheel/DSMRloggerAPI/releases/tag/v3.0.Beta2) naar je computer.
+* Download de laatste \(nieuwste\) versie **`DSMRloggerAPI.ino.bin`** en **`DSMRloggerAPI.mklittlefs.bin`** files van [github](https://github.com/mrWheel/DSMRloggerAPI/releases/tag/v3.0.1) naar je computer.
 * Klik op de knop **`[Update Firmware]`**, selecteer ![](.gitbook/assets/chooseino.png) met **`[Choose File]`** het goede firmware bestand \(DSMRloggerAPI**.ino.bin**\) en flash eerst deze nieuwe firmware door op de knop **`[Flash Firmware]`** te klikken.
 
 ![](.gitbook/assets/flash_ino_bin.png)
